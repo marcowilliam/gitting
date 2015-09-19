@@ -1,3 +1,5 @@
+# Gemfile is a file from Rails Framework to include the specified gems to use in project. 
+# This gems will be include in bundle install list do installing in the project.
 source 'https://rubygems.org'
 
 
