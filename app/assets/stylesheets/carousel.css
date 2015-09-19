@@ -2,6 +2,8 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+/* CSS document responsible for fomarting the slideshow on the homepage */
+
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
