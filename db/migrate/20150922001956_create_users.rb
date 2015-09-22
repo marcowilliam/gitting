@@ -1,3 +1,5 @@
+# Creating variables and automatically generating the database schemma to User Class
+
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
