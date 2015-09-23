@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/home'
 
-  get '/login' => 'user#new'
+  get '/login' => 'users#new'
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
 
