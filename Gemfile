@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#Add Figaro to config Environment Variables in a better way
+gem "figaro"
+
 # bundle the omniauth offical gem, to make a GitHub Authentication in the website
 gem "omniauth-github", '1.1.1'
 
