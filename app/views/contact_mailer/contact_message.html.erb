@@ -5,9 +5,5 @@
 
 <p><strong>Email: </strong><%= @contact['email'] %></p>
 
-<% if @contact['subject'].present? %>
-  <p><strong>Assunto: </strong><%= @contact['subject'] %></p>
-<% end %>
-
 <p><strong>Mensagem:</strong></p>
 <p><%= @contact['message'] %></p>

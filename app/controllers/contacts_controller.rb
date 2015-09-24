@@ -24,4 +24,5 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(allow)
   end
 
+
 end

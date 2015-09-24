@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/about'
   get 'static_pages/home'
-  get 'static_pages/contact'
+  get 'contacts/new'
+  
 
   get '/login' => 'users#new'
   get "/auth/:provider/callback" => "sessions#create"

@@ -1,33 +1,96 @@
-<%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<!-- HTML document responsible for offering contact options for users  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Contato</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-horizontal">
+      <fieldset>
 
-      <ul>
-      <% @contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <!-- Form Name -->
+      <legend>Fale conosco</legend>
+      <%= form_for(@contact) do |f| %>
+            <% if @contact.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@contact.errors.count, "error") %> Ocorreu um erro</h2>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :subject %><br>
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+            <ul>
+              <% @contact.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+            </div>
+            <% end %>
+          <!-- Text input-->
+          <div class="form-group">
+
+            <%= f.label :Nome, :class => 'col-md-4 control-label' %>   
+            <div class="col-md-4">
+            <%= f.text_field :name, :class => 'form-control input-md' %>
+              
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <%= f.label :Email, :class => "col-md-4 control-label" %> 
+            <div class="col-md-4">
+            <%= f.text_field :email,:class => "form-control input-md" %>
+              
+            </div>
+          </div>
+
+           <!-- Text input-->
+          <div class="form-group">
+            <%= f.label :Assunto, :class => "col-md-4 control-label" %> 
+            <div class="col-md-4">
+            <%= f.text_field :subject,:class => "form-control input-md" %>
+              
+            </div>
+          </div>
+
+          <!-- Textarea -->
+          <div class="form-group">
+            <%= f.label :Mensagem, :class => "col-md-4 control-label" %>
+            <div class="col-md-4">                     
+              <%= f.text_area :message, :class => "form-control" %>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="send"></label>
+            <div class="col-md-4">
+              <%= f.submit :class => "btn btn-success"%>
+            </div>
+          </div>
+        <% end %>
+
+      </fieldset>
+      </div>
+      
+      <!-- FOOTER -->
+      <footer>
+        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+    </div><!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../assets/stylesheets/bootstrap.min.js"></script>
+  </body>
+</html>
+
