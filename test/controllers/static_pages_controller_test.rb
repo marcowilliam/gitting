@@ -17,4 +17,11 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_response :success
      assert_select "title", "Sobre nós"
   end
+
+ # Testing the website navigation and checking the title of pages to Contact page
+  test "should get about" do
+    get :contac
+    assert_response :success
+     assert_select "title", "Contato"
+  end
 end
