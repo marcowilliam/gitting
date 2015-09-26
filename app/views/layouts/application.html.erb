@@ -7,25 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <body>     
-    <div class="navbar-wrapper">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-               <li><%= link_to "Pagina Inicial", controller: "static_pages", action: "home" %></li>
-               <li><%= link_to "Login", controller: "users", action: "new"%></li>
-               <li><%= link_to "Sobre nós", controller: "static_pages", action: "about" %></li>
-                <li><%= link_to "Contato", controller: "contacts", action: "new" %></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Gitting</a>
     </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Pagina Inicial", controller: "static_pages", action: "home" %></li>
+        <li><%= link_to "Sobre nós", controller: "static_pages", action: "about" %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Contato", controller: "contacts", action: "new" %></li>
+        <% if current_user %>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <%= current_user.username %>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a>Perfil</a></li>
+            <li><a>Configurações</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a>Logout</a></li>
+          </ul>
+        </li>
+        <% end %> 
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 <%= yield %>
 </body>
 </html>
