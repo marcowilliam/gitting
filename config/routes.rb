@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get 'static_pages/about'
   get 'static_pages/home'
   get 'contacts/new'
-  
 
-  get '/login' => 'users#new'
+  get '/auth/github', as: 'github_login'
+  get '/signin' => 'users#new'
   get "/auth/:provider/callback" => "sessions#create"
-  get "/signout" => "sessions#destroy", :as => :signout
+  get "/logout" => "sessions#destroy"
 
 end

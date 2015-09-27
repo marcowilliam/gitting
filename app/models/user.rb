@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def self.find_existing_user(user)
+		if Business.exists?(:email => user.email)
+			return true
+		else
+			return false
+		end
+	end
+
+
 end
