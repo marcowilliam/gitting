@@ -10,12 +10,14 @@ class SessionsController < ApplicationController
 		@authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 		
 		if @authorization
+
+			session[:user_id] = @authorization.user.id
 			redirect_to root_url
 		else
 			user = User.new :username => auth_hash["info"]["username"], :email => auth_hash["info"]["email"]
 			Authorization.create :user => user, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
 			user.save
-
+			session[:user_id] = @authorization.user.id
 			redirect_to root_url
 		end
 	end
@@ -23,7 +25,6 @@ class SessionsController < ApplicationController
  	#Method that represents the destroy session action 
 	def destroy
 		session[:user_id] = nil
-		render :text => "You've logged out!"
 		redirect_to root_url
 	end
 
