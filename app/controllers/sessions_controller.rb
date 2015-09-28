@@ -1,8 +1,6 @@
 # This is a controller to have a control for User Sessions in application
 
 class SessionsController < ApplicationController   
-	def new
-	end
 	#Method that represents the create session action 
 	def create     
 		auth_hash = request.env['omniauth.auth']
@@ -10,7 +8,6 @@ class SessionsController < ApplicationController
 		@authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 		
 		if @authorization
-
 			session[:user_id] = @authorization.user.id
 			redirect_to root_url
 		else
