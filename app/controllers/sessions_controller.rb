@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
 			session[:user_id] = @authorization.user.id
 			redirect_to root_url
 		else
-			user = User.new :username => auth_hash["info"]["username"], :email => auth_hash["info"]["email"]
+			user = User.new :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
 			Authorization.create :user => user, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
 			user.save
-			session[:user_id] = @authorization.user.id
+			session[:user_id] = user.id
 			redirect_to root_url
 		end
 	end
