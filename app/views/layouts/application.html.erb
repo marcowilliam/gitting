@@ -35,13 +35,13 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-  <% end %>
 </head>
-<!-- render the current page body -->
   </nav>
 <body>
-  <%= yield %>
+  <!-- rendering messages and the layout body to current page -->
+  <div class="container">      
+    <%= flash_messages %>
+    <%= yield %>
+  </div>
 </body>
 </html>

@@ -10,12 +10,14 @@ class SessionsController < ApplicationController
 		if @authorization
 			session[:user_id] = @authorization.user.id
 			redirect_to root_url
+			flash[:success] =  "Bem vindo, você logou!"
 		else
 			user = User.new :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
 			Authorization.create :user => user, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
 			user.save
 			session[:user_id] = user.id
 			redirect_to root_url
+			flash[:success] =  "Bem vindo, você se cadastrou com sucesso"
 		end
 	end
  	
@@ -23,10 +25,12 @@ class SessionsController < ApplicationController
 	def destroy
 		session[:user_id] = nil
 		redirect_to root_url
+		flash[:success] =  "Você foi deslogado"
 	end
 
 	def failure
-		render :text => "Sorry, but you didn't allow access to our app!"
+		flash[:error] = "Desculpa, mas houve um erro."
+		redirect_to root_url
 	end
  
 end
