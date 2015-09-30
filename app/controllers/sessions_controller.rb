@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 		if @authorization
 			session[:user_id] = @authorization.user.id
 			redirect_to root_url
+			logger.info "This user exist in system"
 			flash[:success] =  "Bem vindo, você logou!"
 		else
 			user = User.new :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
@@ -25,6 +26,7 @@ class SessionsController < ApplicationController
 	def destroy
 		session[:user_id] = nil
 		redirect_to root_url
+		logger.info "This user exist in has been made logoff"
 		flash[:success] =  "Você foi deslogado"
 	end
 
