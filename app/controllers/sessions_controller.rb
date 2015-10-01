@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 		
 		if @authorization
 			session[:user_id] = @authorization.user.id
-			redirect_to root_url
+			redirect_to '/dashboard'
 			logger.info "This user exist in system"
 			flash[:success] =  "Bem vindo, você logou!"
 		else
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 			Authorization.create :user => user, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
 			user.save
 			session[:user_id] = user.id
-			redirect_to root_url
+			redirect_to '/dashboard'
 			flash[:success] =  "Bem vindo, você se cadastrou com sucesso"
 		end
 	end

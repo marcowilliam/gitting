@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'contacts/new'
 
+  get '/dashboard' => 'disciplines#index', as: 'dashboard'
+
   get '/auth/github', as: 'github_login'
   get '/signin' => 'users#new', as: 'login'
   get "/auth/:provider/callback" => "sessions#create"
