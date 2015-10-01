@@ -1,7 +1,6 @@
 # File name :: sessions_controller.rb
 # Description :: Class SessionsController is a controller
 # to have a control for User Sessions in application.
-
 class SessionsController < ApplicationController   
 	#Method that represents the create session action 
 	def create     

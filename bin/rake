@@ -1,4 +1,5 @@
-#file to direct the rake to the boot
+# File name :: rake
+# Description :: File to direct the rake to the boot
 begin
   load File.expand_path("../spring", __FILE__)
 rescue LoadError
