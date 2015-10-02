@@ -17,3 +17,10 @@ branches:
   only:
 
     - master
+    
+addons:
+    code_climate:
+        repo_token: 8fc7bc93aad5fb078036775349b9c1fc0529cec03f31f78aea819111824dfa47
+
+notifications:
+  slack: gitting:fscY5ZpcJeFI2lGe8ir45CyK
