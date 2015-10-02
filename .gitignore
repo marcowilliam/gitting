@@ -50,3 +50,6 @@ Gemfile.lock/
 public/system/
 # Ignore application configuration
 /config/application.yml
+
+#Ignoring coverage
+coverage
