@@ -1,4 +1,5 @@
 RSpec.configure do |config|
+
   require 'simplecov'
   SimpleCov.start do
     add_filter '/spec/'
@@ -13,6 +14,9 @@ RSpec.configure do |config|
     add_group 'Views', 'app/views'
   end
   
+  require "codeclimate-test-reporter"
+  CodeClimate::TestReporter.start
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

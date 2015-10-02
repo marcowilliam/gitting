@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'simplecov', :require => false, :group => :test
+  gem "codeclimate-test-reporter", group: :test, require: nil
 end
 
 group :development do
