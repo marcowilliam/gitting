@@ -1,0 +1,19 @@
+language: ruby
+
+script:
+  - bundle exec rake db:migrate
+  - bundle exec rake spec
+
+rvm:
+  - 2.2.3
+notifications:
+  email:
+    recipients:
+      - tamara-bt@hotmail.com
+      - matheus.godinho@outlook.com
+      - marcowilliamdf@gmail.com
+      - ptralcantara@gmail.com
+branches:
+  only:
+
+    - master
