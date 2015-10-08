@@ -1,6 +1,7 @@
 # File name :: application_controller.rb
 # Description :: Class ApplicationController is a controller 
 # to take actions for all system.
+
 class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	helper_method :current_user, :logged_in?

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/about', as: 'about'
   get 'static_pages/home'
   get 'contacts/new'
+  get 'disciplines/index'
   get '/users/:id' => 'users#show', as: :user
 
   get '/dashboard' => 'disciplines#index', as: 'dashboard'

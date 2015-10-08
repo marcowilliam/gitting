@@ -1,3 +1,7 @@
+# File name :: contacts_controller.rb
+# Description :: Class ContactsController is a controller 
+# to take actions for all contacts.
+
 class ContactsController < ApplicationController
   def new
     @contact = Contact.new
