@@ -1,6 +1,7 @@
 # File name :: application_helper.rb
 # Description :: Class ApplicationHelper from Rails framework
 # to configure aplication setups and tools
+
 module ApplicationHelper
 
   def bootstrap_class_for flash_type
