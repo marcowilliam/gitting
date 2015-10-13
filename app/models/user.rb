@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	
 	#creating a relation with table authentications
 	has_many :authentications
+	has_many :disciplines
 
 	#make a validation for elements in model
 	validates_presence_of :email, :username
