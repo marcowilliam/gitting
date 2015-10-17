@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
 
     if @contact.valid?
       ContactMailer.contact_message(params[:contact]).deliver_now
-      flash[:notice] = 'Mensagem enviado com sucesso'
+      flash[:notice] = 'Mensagem enviada com sucesso'
       redirect_to :action => 'new'
       return  
     end
