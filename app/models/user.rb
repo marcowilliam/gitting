@@ -2,10 +2,12 @@
 # Description :: Class User is a model class
 # to represent a system user
 class User < ActiveRecord::Base
+  rolify
 	
 	#creating a relation with table authentications
 	has_many :authentications
 	has_many :inscriptions
+	has_many :disciplines
 
 	#make a validation for elements in model
 	validates_presence_of :email, :username
