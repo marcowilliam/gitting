@@ -4,6 +4,11 @@
 
 class SessionsController < ApplicationController   
 	#Method that represents the create session action 
+	
+	def new
+		redirect_to "auth/github"
+	end
+
 	def create     
 		auth_hash = request.env['omniauth.auth']
 
@@ -15,7 +20,7 @@ class SessionsController < ApplicationController
 			logger.info "This user exist in system"
 			flash[:success] =  "Bem vindo, você logou!"
 		else
-			user = User.new :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
+			user = User.create_with_omniauth(auth_hash)
 			Authorization.create :user => user, :provider => auth_hash["provider"], :uid => auth_hash["uid"]
 			user.save
 			session[:user_id] = user.id
@@ -23,7 +28,7 @@ class SessionsController < ApplicationController
 			flash[:success] =  "Bem vindo, você se cadastrou com sucesso"
 		end
 	end
- 	
+
  	#Method that represents the destroy session action 
 	def destroy
 		session[:user_id] = nil

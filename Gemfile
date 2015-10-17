@@ -55,5 +55,7 @@ group :development do
 
   # Make a role administration in project
   gem 'rolify'
+
+   gem "bcrypt-ruby", :require => "bcrypt"
 end
 

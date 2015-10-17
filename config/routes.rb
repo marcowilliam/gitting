@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
 
+  resources :users
   resources :contacts
   resources :disciplines
   # You can have the root of your site routed with "root"
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'contacts/new'
   get 'disciplines/index'
-  get '/users/:id' => 'users#show', as: :user
 
   get '/dashboard' => 'disciplines#index', as: 'dashboard'
 

@@ -10,8 +10,16 @@ class User < ActiveRecord::Base
 	has_many :disciplines
 
 	#make a validation for elements in model
-	validates_presence_of :email, :username
-	validates_associated :authentications
-	validates_uniqueness_of :email
+	#validates_presence_of :email, :username
+	#validates_associated :authentications
+	#validates_uniqueness_of :email
 
+	def self.create_with_omniauth(auth)
+	    create! do |user|
+	      user.provider = auth['provider']
+	      if auth['info']
+	         user.username = auth['info']['name'] || ""
+	      end
+	    end
+  	end
 end
