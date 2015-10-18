@@ -3,6 +3,4 @@
 # to take actions for all rates.
 
 class RatesController < ApplicationController
-	def index
-	end
 end

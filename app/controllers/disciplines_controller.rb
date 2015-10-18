@@ -4,5 +4,6 @@
 
 class DisciplinesController < ApplicationController
 	def index
+		@disciplines = current_user.disciplines
 	end
 end
