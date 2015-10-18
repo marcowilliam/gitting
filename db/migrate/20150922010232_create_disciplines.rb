@@ -7,7 +7,6 @@ class CreateDisciplines < ActiveRecord::Migration
     	t.string :discipline_name
     	t.text :discipline_description
     	t.string :discipline_year
-
     	t.timestamps null: false
     end
   end
