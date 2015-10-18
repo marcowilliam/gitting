@@ -28,7 +28,7 @@
     <div class="row">
       <h3>Minhas disciplinas</h3>
     </div>
-    <% if @disciplines == nil %>
+    <% if @disciplines.empty? %>
       <div class="row">
         <div class="col-lg-6">
           <div class="alert alert-info" role="alert">Você não possui nenhuma disciplina, clique no botão abaixo para criar uma ou pesquise disciplinas para se inscrever.</div>
@@ -43,14 +43,14 @@
             <div class="caption">
               <h3 style="text-align:center"><%= discipline.discipline_name%></h3>
               <p><%= discipline.discipline_description %></p>
-              <p><a href="#" class="btn btn-primary" role="button">Entrar</a></p>
+              <%= link_to "Entrar", discipline_path(discipline), :class => "btn btn-default" %>
             </div>
           </div>
         </div>
        <%end%>
       </div>
     <%end%>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Criar uma disciplina</a></p>
+    <p><a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a></p>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

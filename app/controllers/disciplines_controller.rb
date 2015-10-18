@@ -23,6 +23,7 @@ class DisciplinesController < ApplicationController
 		@discipline = current_user.disciplines.build(discipline_params)
 
 		if @discipline.save
+			current_user.add_role :admin, Discipline.last
 			redirect_to @discipline, notice: "Nova disciplina criada"
 		else
 			render action: "new"
