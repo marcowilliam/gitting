@@ -14,10 +14,25 @@
     <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
   </head>
   <body>
-
-    <h3> <%= @discipline.discipline_name%> </h3>
-    <h4><%= @discipline.discipline_description%></h4>
-    
+    <div class="row">
+          <h3 style="text-align:center"> <%= @discipline.discipline_name%> </h3>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-md-1">
+        <h4> Descrição </h4>
+      </div>
+      <div class="col-sm-0 col-md-3">
+        <p> <%= @discipline.discipline_description%> </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2 col-md-1">
+        <h4> Criador </h4>
+      </div>
+      <div class="col-sm-2 col-md-2">
+        <p><%= @user.username%></p>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

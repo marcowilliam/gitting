@@ -5,10 +5,12 @@
 class DisciplinesController < ApplicationController
 	def index
 		@disciplines = current_user.disciplines
+		
 	end
 
 	def show
 		@discipline = Discipline.find(params[:id])
+		@user = User.find(@discipline.user_id)
 	end
 
 	def new
