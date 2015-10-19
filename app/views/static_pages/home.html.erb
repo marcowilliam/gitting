@@ -5,65 +5,32 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../../favicon.ico">
-    <title>Pagina Inicial</title>
-  </head>
   <body>
 
-    <!-- Marketing messaging and featurettes
+    <!-- Marketing messaging and featurettes\
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
-    <a name = "informações"></a>
-    <div class="container marketing">
-      <div class="row">
-        <div class="col-lg-4">
-           <%=image_tag("disciplinas_image.png", style: 'padding-top: 7%; padding-left: 30%; height: 140px;')%>
-          <h2>Crie suas disciplinas</h2>
-          <p>Agrupe repositórios que você queria acompanhar em disciplinas para garantir um melhor controle e acesso as informação que são importantes.</p>
+<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Your Favorite Source of Free Bootstrap Themes</h1>
+                <hr>
+                <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+            </div>
         </div>
-        <div class="col-lg-4">
-          <%=image_tag("informations_image.png", style: 'padding-top: 7%; padding-left: 30%; height: 140px;')%>
-          <h2>Vizualize as informações</h2>
-          <p>É possivel vizualizar diversos dados sobre esses repositórios, comparar valores entre eles e ter um controle de gráficos sobre o andamento do projeto e participação de colaboradores.</p>
-        </div>
-        <div class="col-lg-4">
-          <%=image_tag("avalie_image.png", style: 'padding-top: 7%; padding-left: 30%; height: 140px;')%>
-          <h2>Avalie os projetos</h2>
-          <p>Envie seu feedback aos colaboradores para que exista uma interação entre aqueles que estão sendo avaliados e auxilar na melhoria de cada um dos projetos.</p>
-        </div>
-      </div>
+    </header>
 
-      <!-- START THE FEATURETTES -->
-      <a name = "sobre"></a>
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading">gitting <span class="text-muted">é um trabalho colaborativo desenvolvido na Universidade de Brasília</span></h2>
-          <p class="lead">Somos alunos da disciplina de técnicas de programação visando melhorar o sistema de avaliação de algumas disciplinas por meio de repositório no github </p>
-        </div>
-        <div class="col-md-5">
-          <%=image_tag("lupa.jpg", height: '400', width: '400')%>
-        </div>
-      </div>
-
-      
+    <%= render :partial => 'static_pages/services' %>
+    <%= render :partial => 'static_pages/portifolio' %>
+    <!--<%= render :partial => 'static_pages/about' %>-->
+    <%= render :partial => 'static_pages/contact' %>
+            
       <!-- /END THE FEATURETTES -->
       <footer>
         <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../assets/stylesheets/bootstrap.min.js"></script>
   </body>
 </html>
