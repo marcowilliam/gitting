@@ -3,6 +3,8 @@
 # to take actions for all disciplines.
 
 class DisciplinesController < ApplicationController
+	
+	# Default method for DisciplinesController
 	def index
 		@disciplines = current_user.disciplines
 		
