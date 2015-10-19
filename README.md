@@ -1,7 +1,6 @@
 # gitting
 A collaborative work for a course at the University of Brasilia
 
-[![Build Status](https://travis-ci.org/MatheusGodinho/gitting.svg?branch=master)](https://travis-ci.org/MatheusGodinho/gitting)
 [![Stories in Ready](https://badge.waffle.io/MatheusGodinho/gitting.svg?label=ready&title=Ready)](http://waffle.io/MatheusGodinho/gitting)
 
 
