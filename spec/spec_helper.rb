@@ -1,5 +1,26 @@
 RSpec.configure do |config|
 
+  require 'omniauth'
+  OmniAuth.config.test_mode = true
+  omniauth_hash = { 'provider' => 'github',
+                    'uid' => '12345',
+
+                    'info' => {
+                        'name' => 'Fulano',
+                        'email' => 'fulano@dominio.com',
+                        'nickname' => 'fulano'
+                    },
+                    
+                    'extra' => {
+                      'raw_info' => { 
+                        'location' => 'Brasilia',
+                        'gravatar_id' => '123456789'
+                      }
+                    }
+                  }
+ 
+  OmniAuth.config.add_mock(:github, omniauth_hash)
+
   require 'simplecov'
   SimpleCov.start do
     add_filter '/spec/'
