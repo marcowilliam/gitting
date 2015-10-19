@@ -3,9 +3,12 @@
 # to have a control for the Static Pages.
 
 class StaticPagesController < ApplicationController
+	
+	# Method that calls the home view
 	def home
 	end
 
+	# Method that calls the about view
 	def about
 	end
 

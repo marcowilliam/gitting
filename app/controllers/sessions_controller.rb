@@ -3,12 +3,13 @@
 # to have a control for User Sessions in application.
 
 class SessionsController < ApplicationController   
-	#Method that represents the create session action 
 	
+	# Method that runs when the user wants to log in 
 	def new
 		redirect_to "auth/github"
 	end
 
+	# Method that represents the create session action 
 	def create     
 		auth_hash = request.env['omniauth.auth']
 
@@ -29,7 +30,7 @@ class SessionsController < ApplicationController
 		end
 	end
 
- 	#Method that represents the destroy session action 
+ 	# Method that represents the destroy session action 
 	def destroy
 		session[:user_id] = nil
 		redirect_to root_url
