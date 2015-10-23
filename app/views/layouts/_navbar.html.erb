@@ -37,13 +37,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Entenda a ferramenta</a>
                     </li>
                     <% if logged_in? %>
           <li class="dropdown">
@@ -57,7 +60,6 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Entenda a ferramenta", controller: "static_pages", action: "about" %></li>
           <li><%= link_to "Contato", controller: "contacts", action: "new" %></li>
           <li><%= link_to "Login", controller: "users", action: "new" %></li>
         <% end %>    
