@@ -1,6 +1,7 @@
 # File name :: user.rb
 # Description :: Class User is a model class
 # to represent a system user
+
 class User < ActiveRecord::Base
   rolify
 	
@@ -16,7 +17,6 @@ class User < ActiveRecord::Base
 
 	def self.create_with_omniauth(auth)
 	    create! do |user|
-	      user.provider = auth['provider']
 	      if auth['info']
 	         user.username = auth['info']['name'] || ""
 	      end
