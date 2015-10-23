@@ -12,28 +12,24 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <title>Pagina Inicial</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
+    <link href="assets/disciplines.css" rel="stylesheet">
   </head>
   <body>
-    <h4>Crie uma nova disciplina</h4>
+    <div class="disciplines-layout">
+    <h3>Crie uma nova disciplina</h3>
+    
+    <%= bootstrap_form_for @discipline do |f|%>
+      <p>
+        <%= f.text_field :discipline_name, width: "10px", label: "Nome",required: true %>
+      </p>
+      <p>
+        <%= f.text_area :discipline_description, label: "Descrição" %>
+      </p>
 
-    <%= form_for @discipline do |f|%>
-      <p>
-        <%=f.label :discipline_name%><br />
-        <%= f.text_field :discipline_name%>
-      </p>
-      <p>
-        <%=f.label :discipline_description%><br />
-        <%= f.text_field :discipline_description%>
-      </p>
-      <p>
-        <%= f.submit %>
-      </p>
+        <%= f.submit "Criar Drisciplina", class: "btn btn-primary" %> 
 
     <%end%>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

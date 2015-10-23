@@ -13,53 +13,47 @@
     <link rel="icon" href="../../favicon.ico">
     <title>Pagina Inicial</title>
     <!-- Bootstrap core CSS -->
-    <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
+    <link href="assets/disciplines.css" rel="stylesheet">
   </head>
   <body>
-  <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
-        <input type="text" class="form-control" placeholder="Procure por disciplinas...">
-        <span class="input-group-btn">
-         <button class="btn btn-default" type="button">Buscar</button>
-        </span>
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
-    </div><!-- /.row -->
-    <div class="row">
-      <h3>Minhas disciplinas</h3>
-    </div>
-    <% if @disciplines.empty? %>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="alert alert-info" role="alert">Você não possui nenhuma disciplina, clique no botão abaixo para criar uma ou pesquise disciplinas para se inscrever.</div>
+      <div class="disciplines-layout">
+        <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group">
+              <input type="text" class="form-control" placeholder="Procure por disciplinas...">
+              <span class="input-group-btn">
+               <button class="btn btn-default" type="button">Buscar</button>
+              </span>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <h3>Minhas disciplinas</h3>
           </div>
-    </div>
-    <%else%>
-      <div class="row">
-       <%@disciplines.each do |discipline|%>
-        <div class="col-sm-4 col-md-3">
-          <div class="thumbnail">
-            <%=image_tag("disciplinas_image.png", style: 'padding-top: 0%; padding-left: 0%; height: 40px;')%>
-            <div class="caption">
-              <h3 style="text-align:center"><%= discipline.discipline_name%></h3>
-              <p><%= discipline.discipline_description %></p>
-              <%= link_to "Entrar", discipline_path(discipline), :class => "btn btn-default" %>
+          <% if @disciplines.empty? %>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="alert alert-info" role="alert">Você não possui nenhuma disciplina, clique no botão abaixo para criar uma ou pesquise disciplinas para se inscrever.</div>
+                </div>
+          </div>
+          <%else%>
+            <div class="row">
+             <%@disciplines.each do |discipline|%>
+              <div class="col-sm-4 col-md-3">
+                <div class="thumbnail">
+                  <%=image_tag("disciplinas_image.png", style: 'padding-top: 0%; padding-left: 0%; height: 40px;')%>
+                  <div class="caption">
+                    <h3 style="text-align:center"><%= discipline.discipline_name%></h3>
+                    <p><%= discipline.discipline_description %></p>
+                    <%= link_to "Entrar", discipline_path(discipline), :class => "btn btn-default" %>
+                  </div>
+                </div>
+              </div>
+             <%end%>
             </div>
-          </div>
-        </div>
-       <%end%>
+          <%end%>
+          <p><a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a></p>
       </div>
-    <%end%>
-    <p><a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a></p>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../assets/stylesheets/bootstrap.min.js"></script>
   </body>
 </html>
     
