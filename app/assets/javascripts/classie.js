@@ -10,7 +10,9 @@
 
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false */
-
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 ( function( window ) {
 
 'use strict';

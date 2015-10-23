@@ -8,7 +8,9 @@
 *
 * Date: Thu May 05 14:23:00 2011 -0600
 */
-
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 (function( $ ){
 
   $.fn.fitText = function( kompressor, options ) {
