@@ -1,5 +1,8 @@
+<!--
+  File name: _navbar.html.erb
+  Description: This file contains what will represent a simple element to be used in a view
+-->
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,19 +48,10 @@
                     <% else %>
                         <!-- Do nothing -->
                     <% end %>
-
+                        <!-- Show different menu element with user is logged -->
                         <% if logged_in? %>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
-                                aria-haspopup="true" aria-expanded="false"><%= current_user.username %>
-                                <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                  <li><a><%= link_to  "Perfil", user_path(current_user) %></a></li>
-                                  <li><a>Configurações</a></li>
-                                  <li role="separator" class="divider"></li>
-                                  <li><a><%= link_to  "Logout", logout_path, method: "delete" %></a></li>
-                                </ul>
-                            </li>
+                            <li><a><%= current_user.username %></a></li>
+                            <li><%= link_to  "Logout", controller: "sessions", action: "destroy" %></li>
                         <% else %>
                             <li><%= link_to "Contato", controller: "contacts", action: "new" %></li>
                             <li><%= link_to "Login", controller: "users", action: "new" %></li>
