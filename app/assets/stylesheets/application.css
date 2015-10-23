@@ -20,3 +20,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+body {
+	padding-top: 5%; 
+}
