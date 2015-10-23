@@ -15,17 +15,18 @@
     <link href="assets/disciplines.css" rel="stylesheet">
   </head>
   <body>
-    <h2>Crie uma nova disciplina</h2>
     <div class="disciplines-layout">
+    <h3>Crie uma nova disciplina</h3>
+    
     <%= bootstrap_form_for @discipline do |f|%>
       <p>
-        <%= f.text_field :discipline_name, label: "Nome",required: true %>
+        <%= f.text_field :discipline_name, width: "10px", label: "Nome",required: true %>
       </p>
       <p>
         <%= f.text_area :discipline_description, label: "Descrição" %>
       </p>
 
-        <%= f.submit %> 
+        <%= f.submit "Criar Drisciplina", class: "btn btn-primary" %> 
 
     <%end%>
     </div>
