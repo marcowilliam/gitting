@@ -70,20 +70,10 @@ ActiveRecord::Schema.define(version: 20151017181624) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
-  create_table "students", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "teachers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
-    t.string   "username"
     t.string   "email"
-    t.boolean  "is_admin"
+    t.string   "username"
+    t.string   "provider"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
