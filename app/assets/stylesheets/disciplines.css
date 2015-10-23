@@ -1,6 +1,17 @@
 .disciplines-layout{
+
 	text-align: center;
 	margin-left:20%;
 	margin-right: 20%;
 
+}
+
+.disciplines-layout h3{
+
+	padding-left: 15%;
+}
+
+.disciplines-layout p{
+
+	padding-left: 13%;
 }
