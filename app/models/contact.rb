@@ -1,3 +1,7 @@
+# File name :: contact.rb
+# Description :: Class Contact is a model class
+# to represent users that will contact the team
+
 class Contact
   include ActiveModel::Validations
   include ActiveModel::Conversion

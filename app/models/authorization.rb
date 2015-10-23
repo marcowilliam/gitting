@@ -1,3 +1,7 @@
+# File name :: authorization.rb
+# Description :: Class Authorization is a model class
+# to represent authorization by an user
+
 class Authorization < ActiveRecord::Base
 	
 	belongs_to :user

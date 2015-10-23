@@ -8,6 +8,9 @@
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
 var cbpAnimatedHeader = (function() {
 
 	var docElem = document.documentElement,
