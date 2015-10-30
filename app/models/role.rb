@@ -1,7 +1,7 @@
 # File name :: role.rb
 # Description :: Class Role is a model class
 # to represent the users' roles in their disciplines
-#it can be:
+# it can be:
 # => Creator
 # => Adimnistrator
 # => Participant
