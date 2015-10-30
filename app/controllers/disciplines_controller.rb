@@ -6,7 +6,11 @@ class DisciplinesController < ApplicationController
 	
 	# Default method for DisciplinesController
 	def index
-		@disciplines = current_user.disciplines
+		if params[:busca]
+			@disciplines = Discipline.where("discipline_name like ?", "%#{params[:busca]}%")
+		else
+		 	@disciplines = current_user.disciplines
+		end
 		
 	end
 
