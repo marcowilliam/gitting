@@ -9,4 +9,8 @@ class Discipline < ActiveRecord::Base
 	has_many :inscriptions
 	belongs_to :users
 
+	def self.search(query)
+		where("discipline_name like ?", "%#{query}%")
+	end
+
 end
