@@ -8,8 +8,10 @@ class DisciplinesController < ApplicationController
 	def index
 		if params[:busca]
 			@disciplines = Discipline.search(params[:busca])
+			@pageTitle = "Resultado da Busca"
 		else
 		 	@disciplines = current_user.disciplines
+		 	@pageTitle = "Minhas Disciplinas"
 		end
 	end
 
