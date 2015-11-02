@@ -12,9 +12,12 @@ class DisciplinesController < ApplicationController
 		if params[:search]
 			@disciplines = Discipline.search(params[:search])
 			@pageTitle = "Resultado da Busca"
+			@disciplinesNotFound = "Nenhuma disciplina encontrada..."
 		else
 		 	@disciplines = current_user.disciplines
 		 	@pageTitle = "Minhas Disciplinas"
+		 	@disciplinesNotFound = "Você não possui nenhuma disciplina, clique no 
+		 	botão abaixo para criar uma ou pesquise disciplinas para se inscrever."
 		end
 	end
 

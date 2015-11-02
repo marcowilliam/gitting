@@ -36,7 +36,9 @@
           <% if @disciplines.empty? %>
             <div class="row">
               <div class="col-lg-6">
-                <div class="alert alert-info" role="alert" style="width:88%;">Você não possui nenhuma disciplina, clique no botão abaixo para criar uma ou pesquise disciplinas para se inscrever.</div>
+                <div class="alert alert-info" role="alert" style="width:88%;">
+                  <%= @disciplinesNotFound %>
+                </div>
                 </div>
           </div>
           <%else%>
@@ -55,7 +57,9 @@
              <%end%>
             </div>
           <%end%>
-          <p><a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a></p>
+          <p>
+            <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a>
+          </p>
       </div>
   </body>
 </html>
