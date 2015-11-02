@@ -9,8 +9,8 @@ class DisciplinesController < ApplicationController
 	# The method index will show all the disciplines the user has, but if a search
 	# has been done, it will show the results for the search
 	def index
-		if params[:busca]
-			@disciplines = Discipline.search(params[:busca])
+		if params[:search]
+			@disciplines = Discipline.search(params[:search])
 			@pageTitle = "Resultado da Busca"
 		else
 		 	@disciplines = current_user.disciplines
