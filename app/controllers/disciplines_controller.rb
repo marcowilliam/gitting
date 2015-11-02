@@ -4,7 +4,10 @@
 
 class DisciplinesController < ApplicationController
 	
-	# Default method for DisciplinesController
+	# Default methods for DisciplinesController
+
+	# The method index will show all the disciplines the user has, but if a search
+	# has been done, it will show the results for the search
 	def index
 		if params[:busca]
 			@disciplines = Discipline.search(params[:busca])
