@@ -3,7 +3,6 @@
 # to represent a system user
 
 class User < ActiveRecord::Base
-  rolify
 	
 	#creating a relation with table authentications
 	has_many :authentications
