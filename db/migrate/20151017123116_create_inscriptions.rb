@@ -3,9 +3,7 @@ class CreateInscriptions < ActiveRecord::Migration
     create_table :inscriptions do |t|
     	t.belongs_to :user
     	t.belongs_to :discipline
-    	t.string :role_to_User
     	t.index [:user_id, :discipline_id], unique: true
-
       	t.timestamps null: false
     end
 	end

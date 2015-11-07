@@ -14,7 +14,7 @@ class DisciplinesController < ApplicationController
 			@pageTitle = "Resultado da Busca"
 			@disciplinesNotFound = "Nenhuma disciplina encontrada..."
 		else
-		 	@disciplines = current_user.disciplines
+		 	@disciplines = current_user.owned
 		 	@pageTitle = "Minhas Disciplinas"
 		 	@disciplinesNotFound = "Você não possui nenhuma disciplina, clique no 
 		 	botão abaixo para criar uma ou pesquise disciplinas para se inscrever."
