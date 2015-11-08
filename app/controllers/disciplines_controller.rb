@@ -23,7 +23,7 @@ class DisciplinesController < ApplicationController
 
 	def show
 		@discipline = Discipline.find(params[:id])
-		@user = User.find(@discipline.owner_id)
+		@owner = User.find(@discipline.owner_id)
 	end
 
 	def new
@@ -69,4 +69,5 @@ class DisciplinesController < ApplicationController
 		require(:discipline).
 		permit(:discipline_name,:discipline_description)
 	end
+
 end

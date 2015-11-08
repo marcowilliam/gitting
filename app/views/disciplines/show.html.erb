@@ -1,65 +1,64 @@
 <!--
-  File name: show.html.erb
-  Description: This file contains what will show independent the page show a specific discipline.
+File name: show.html.erb
+Description: This file contains what will show independent the page show a specific discipline.
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content=""> 
-    <link rel="icon" href="../../favicon.ico">
-    <title>Pagina Inicial</title>
-    <!-- Bootstrap core CSS -->
-    <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content=""> 
+  <link rel="icon" href="../../favicon.ico">
+  <title>Pagina Inicial</title>
+  <!-- Bootstrap core CSS -->
+  <link href="../../assets/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
+</head>
+<body>
   <div class="disciplines-layout">
     <h3><%= @discipline.discipline_name%></h3>
     <div class="panel-group" id="accordion">
-   <div class="panel panel-default">
-      <div class="panel-heading">
-         <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">
-            Descrição
-            </a>
-         </h4>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">Descrição</a>
+          </h4>
+        </div>
+        <div id="collapseDescricao" class="panel-collapse collapse in">
+          <div class="panel-body ">
+            <p> <%= @discipline.discipline_description%> </p>
+          </div>
+        </div>
       </div>
-      <div id="collapseDescricao" class="panel-collapse collapse in">
-         <div class="panel-body ">
-          <p> <%= @discipline.discipline_description%> </p>
-         </div>
-      </div>
-   </div>
-   <div class="panel panel-default">
-      <div class="panel-heading">
-         <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapsePessoa">
-            Pessoas
-            </a>
-         </h4>
-      </div>
-      <div id="collapsePessoa" class="panel-collapse collapse">
-         <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapsePessoa">Pessoas</a>
+          </h4>
+        </div>
+        <div id="collapsePessoa" class="panel-collapse collapse">
+          <div class="panel-body">
             <table class="table">
-               <tbody>
-                  <tr>
-                     <td class="strong"> Criador: </td>
-                     <td><%= @user.username%>  </td>
-                  </tr>
-         </div>
-      </div>
-   </div>
+            <tbody>
+            <tr>
+            <td class="strong"> Criador: </td>
+            <td><%= @owner.username%>  </td>
+            </tr>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../assets/stylesheets/bootstrap.min.js"></script>
-  </body>
+  <% if current_user.id != @owner.id && @discipline.isRegistered? == false %>
+    <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
+  <% end %>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="../../assets/stylesheets/bootstrap.min.js"></script>
+</body>
 </html>
-    
+
