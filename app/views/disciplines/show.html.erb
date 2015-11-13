@@ -18,13 +18,15 @@ Description: This file contains what will show independent the page show a speci
   <link href="../../assets/stylesheets/carousel.css" rel="stylesheet">
 </head>
 <body>
+
   <div class="disciplines-layout">
     <h3><%= @discipline.discipline_name%></h3>
     <div class="panel-group" id="accordion">
+      
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">Descrição</a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">Descrição </a>
           </h4>
         </div>
         <div id="collapseDescricao" class="panel-collapse collapse in">
@@ -33,6 +35,7 @@ Description: This file contains what will show independent the page show a speci
           </div>
         </div>
       </div>
+
       <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
@@ -47,14 +50,21 @@ Description: This file contains what will show independent the page show a speci
             <td class="strong"> Criador: </td>
             <td><%= @owner.username%>  </td>
             </tr>
-            </div>
+            </tbody>
+          </table>
           </div>
-        </div>
+      </div>
+      </div>
+
+
     </div>
-  </div>
-  <% if current_user.id != @owner.id && @discipline.isRegistered? == false %>
+
+    <% if current_user.id != @owner.id && @discipline.isRegistered? == false %>
     <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
-  <% end %>
+    <% end %>
+  </div>
+
+    
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="../../assets/stylesheets/bootstrap.min.js"></script>
