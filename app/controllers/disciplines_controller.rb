@@ -11,6 +11,8 @@ class DisciplinesController < ApplicationController
 	def index
 		if params[:search]
 			@disciplines = Discipline.search(params[:search])
+			logger.debug "Recieve a discipline of user owner #{@discipline}"
+
 			@pageTitle = "Resultado da Busca"
 			@disciplinesNotFound = "Nenhuma disciplina encontrada..."
 		else
@@ -26,6 +28,7 @@ class DisciplinesController < ApplicationController
 
 	def show
 		@discipline = Discipline.find(params[:id])
+
 		@owner = User.find(@discipline.owner_id)
 
 		@participants = self.make_participants
@@ -42,6 +45,7 @@ class DisciplinesController < ApplicationController
 
 	def create
 		@discipline = current_user.owned_disciplines.build(discipline_params)
+		logger.debug "Recieve a discipline of user owner #{@discipline}"
 
 		if @discipline.save
 			redirect_to @discipline, notice: "Nova disciplina criada"
@@ -70,6 +74,8 @@ class DisciplinesController < ApplicationController
 
 	def make_disciplines
 		@disciplinesFromUser = current_user.registeredDisciplines
+		logger.debug "Recieve a list of discipline_id #{@disciplinesFromUser.kind_of?(Array)}"
+
 		@disciplines_registered = Array.new()
 
 		for disciplineId in @disciplinesFromUser
@@ -82,6 +88,8 @@ class DisciplinesController < ApplicationController
 
 	def make_participants
 		@participantsId = @discipline.usersRegistered()
+		logger.debug "Recieve a list of discipline_id: #{@participantsId.kind_of?(Array)}"
+
 		@participants = Array.new()
 		
 		for userInDisciplineId in @participantsId
