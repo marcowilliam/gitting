@@ -25,10 +25,11 @@ class DisciplinesController < ApplicationController
 		@discipline = Discipline.find(params[:id])
 		@owner = User.find(@discipline.owner_id)
 		@participantsId = @discipline.usersRegistered()
+		@participants = Array.new()
 		
 		for userInDisciplineId in @participantsId
 			@getUserInDiscipline = User.find(userInDisciplineId)
-			@participants.append(@getUserInDiscipline)
+			@participants << @getUserInDiscipline
 		end
 	end
 

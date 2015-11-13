@@ -52,7 +52,9 @@ Description: This file contains what will show independent the page show a speci
             </tr>
             <tr>
             <td class="strong"> Participantes: </td>
-            <td><%= @participants.name%>  </td>
+            <% @participants.each do |participant|%> 
+            <td> <%= participant.username %></td>
+            <% end %>
             </tr>
             </tbody>
           </table>
