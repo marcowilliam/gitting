@@ -1,10 +1,7 @@
-# File name :: rake
-# Description :: File to direct the rake to the boot
-
+#!/usr/bin/env ruby
 begin
-  load File.expand_path("../spring", __FILE__)
+  load File.expand_path('../spring', __FILE__)
 rescue LoadError
 end
-require_relative '../config/boot'
-require 'rake'
-Rake.application.run
+require 'bundler/setup'
+load Gem.bin_path('rake', 'rake')

@@ -12,6 +12,13 @@ RSpec.describe ContactsController, type: :controller do
 
 	let(:valid_session) { {} }
 
+	
+describe "GET new" do
+    it "assigns a new contact as @contact" do
+      get :new, {}, valid_session
+    end
+  end
+
 	describe "POST #create" do
 	    context "with valid params" do
 	      it "assigns a newly created contact as @contact" do

@@ -23,7 +23,14 @@ class DisciplinesController < ApplicationController
 
 	def show
 		@discipline = Discipline.find(params[:id])
-		@user = User.find(@discipline.owner_id)
+		@owner = User.find(@discipline.owner_id)
+		@participantsId = @discipline.usersRegistered()
+		@participants = Array.new()
+		
+		for userInDisciplineId in @participantsId
+			@getUserInDiscipline = User.find(userInDisciplineId)
+			@participants << @getUserInDiscipline
+		end
 	end
 
 	def new
@@ -69,4 +76,5 @@ class DisciplinesController < ApplicationController
 		require(:discipline).
 		permit(:discipline_name,:discipline_description)
 	end
+
 end

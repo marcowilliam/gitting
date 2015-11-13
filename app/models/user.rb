@@ -23,4 +23,17 @@ class User < ActiveRecord::Base
 	      end
 	    end
   	end
+
+  	def registeredDisciplines
+		@inscriptions = Inscription.where(:user_id => self.id)
+		@listOfDisciplineRegistred = Array.new()
+
+		for inscription in @inscriptions
+			if inscription.user_id == self.id
+				@listOfDisciplineRegistred << inscription.discipline_id
+			end
+		end
+
+		return @listOfDisciplineRegistred
+  	end
 end

@@ -12,4 +12,31 @@ class Discipline < ActiveRecord::Base
 		where("discipline_name like ?", "%#{query}%")
 	end
 
+	def isRegistered?
+		@isRegistered = false
+		@inscriptions = Inscription.where(:discipline_id => self.id)
+
+		for inscription in @inscriptions
+			if inscription.discipline_id == self.id
+				@isRegistered = true
+			end
+		end
+
+		return @isRegistered
+	end
+
+	def usersRegistered
+		@isRegistered = false
+		@inscriptions = Inscription.where(:discipline_id => self.id)
+		@listOfUsersRegistred = Array.new()
+
+		for inscription in @inscriptions
+			if inscription.discipline_id == self.id
+				@listOfUsersRegistred << inscription.user_id
+			end
+		end
+
+		return @listOfUsersRegistred
+	end
+
 end
