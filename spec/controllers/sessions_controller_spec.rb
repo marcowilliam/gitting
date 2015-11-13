@@ -5,11 +5,6 @@ RSpec.describe SessionsController, type: :controller do
     request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
   end
 
- describe "#new" do
-  get :new, {}, {}
-  response.should redirect_to "auth/github"
-
- end
   describe "#create" do
  
     it "should successfully create a user" do
