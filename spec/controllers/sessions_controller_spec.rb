@@ -21,7 +21,7 @@ RSpec.describe SessionsController, type: :controller do
  
     it "should redirect the user to the root url" do
       post :create, provider: :github
-      response.should redirect_to root_url
+      response.should redirect_to '/dashboard'
     end
  
   end
