@@ -13,3 +13,4 @@ Discipline.create(discipline_name: 'PPC', discipline_description: 'Curso de Prog
 Discipline.create(discipline_name: 'IHC', discipline_description: 'Curso de Interação Humano Computador', discipline_year: '2015', owner_id: 5)
 Discipline.create(discipline_name: 'Desenho', discipline_description: 'Curso de Desenho de Software', discipline_year: '2015', owner_id: 5)
 
+Inscription.create(user_id:2, discipline_id:2)
