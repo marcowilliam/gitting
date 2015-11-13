@@ -26,7 +26,6 @@ class Discipline < ActiveRecord::Base
 	end
 
 	def usersRegistered
-		@isRegistered = false
 		@inscriptions = Inscription.where(:discipline_id => self.id)
 		@listOfUsersRegistred = Array.new()
 
@@ -35,7 +34,6 @@ class Discipline < ActiveRecord::Base
 				@listOfUsersRegistred << inscription.user_id
 			end
 		end
-
 		return @listOfUsersRegistred
 	end
 
