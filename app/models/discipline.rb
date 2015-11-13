@@ -25,12 +25,12 @@ class Discipline < ActiveRecord::Base
 		return @isRegistered
 	end
 
-	def usersRegistered()
+	def usersRegistered
 		@isRegistered = false
 		@inscriptions = Inscription.where(:discipline_id => self.id)
 
 		for inscription in @inscriptions
-			if inscription.user_id == current_user.id
+			if inscription.discipline_id == self.id
 				@listOfUsersRegistred.apped(inscription.user_id)
 			end
 		end
