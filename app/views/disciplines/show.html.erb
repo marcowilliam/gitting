@@ -47,14 +47,17 @@ Description: This file contains what will show independent the page show a speci
             <table class="table">
             <tbody>
             <tr>
-            <td class="strong"> Criador: </td>
-            <td><%= @owner.username%>  </td>
+            <td class="strong"> <b><p>Criador: </b></p></td>
+            <td><p><%= @owner.username%> </p> </td>
             </tr>
             <tr>
-            <td class="strong"> Participantes: </td>
+            <td class="strong"> <b><p>Participantes: </b></p></td>
+            <td>
             <% @participants.each do |participant|%> 
-            <td> <%= participant.username %></td>
+             <p><%= participant.username %> </p>
+            
             <% end %>
+            </td>
             </tr>
             </tbody>
           </table>

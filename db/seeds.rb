@@ -14,3 +14,7 @@ Discipline.create(discipline_name: 'IHC', discipline_description: 'Curso de Inte
 Discipline.create(discipline_name: 'Desenho', discipline_description: 'Curso de Desenho de Software', discipline_year: '2015', owner_id: 5)
 
 Inscription.create(user_id:2, discipline_id:2)
+Inscription.create(user_id:3, discipline_id:2)
+Inscription.create(user_id:4, discipline_id:2)
+Inscription.create(user_id:5, discipline_id:2)
+Inscription.create(user_id:6, discipline_id:2)
