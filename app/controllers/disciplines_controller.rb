@@ -15,6 +15,9 @@ class DisciplinesController < ApplicationController
 			@disciplinesNotFound = "Nenhuma disciplina encontrada..."
 		else
 		 	@disciplines = current_user.owned_disciplines
+		 	@discipline_partipate = self.make_disciplines
+
+		 	@disciplines.append(@discipline_partipate)
 		 	@pageTitle = "Minhas Disciplinas"
 		 	@disciplinesNotFound = "Você não possui nenhuma disciplina, clique no 
 		 	botão abaixo para criar uma ou pesquise disciplinas para se inscrever."
@@ -24,13 +27,9 @@ class DisciplinesController < ApplicationController
 	def show
 		@discipline = Discipline.find(params[:id])
 		@owner = User.find(@discipline.owner_id)
-		@participantsId = @discipline.usersRegistered()
-		@participants = Array.new()
-		
-		for userInDisciplineId in @participantsId
-			@getUserInDiscipline = User.find(userInDisciplineId)
-			@participants << @getUserInDiscipline
-		end
+
+		@participants = self.make_participants
+
 	end
 
 	def new
@@ -69,6 +68,30 @@ class DisciplinesController < ApplicationController
 
 	end
 
+	def make_disciplines
+		@disciplinesFromUser = current_user.registeredDisciplines
+		@disciplines_registered = Array.new()
+
+		for disciplineId in @disciplinesFromUser
+			@getDisciplines = Discipline.find(disciplineId)
+			@disciplines_registered << @getDisciplines
+		end
+
+		return @disciplines_registered
+	end
+
+	def make_participants
+		@participantsId = @discipline.usersRegistered()
+		@participants = Array.new()
+		
+		for userInDisciplineId in @participantsId
+			@getUserInDiscipline = User.find(userInDisciplineId)
+			@participants << @getUserInDiscipline
+		end
+
+		return @participants
+	end
+
 	private
 
 	def discipline_params
@@ -76,5 +99,4 @@ class DisciplinesController < ApplicationController
 		require(:discipline).
 		permit(:discipline_name,:discipline_description)
 	end
-
 end
