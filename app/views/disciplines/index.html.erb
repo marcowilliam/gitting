@@ -15,28 +15,30 @@
     <!-- Bootstrap core CSS -->
     <link href="assets/disciplines.css" rel="stylesheet">
   </head>
-  <body>
-      <div class="disciplines-layout">
+  <body style="padding-top: 6%; padding-left:2%;">
+      
         <div class="row">
             <div class="col-lg-6">
                <div class="input-group">
               <%= form_tag(disciplines_path, :method => :get) do %>
                 <%= text_field_tag 'search',nil, placeholder: 'Procure por disciplinas...', :class => "form-control" %>
+             
                 <span class="input-group-btn">
                 <%= submit_tag "Buscar", :class => "btn btn-default" %>
                 </span>
               <% end %>
+          
               </div><!-- /input-group -->
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
+          <div class="disciplines-layout">
           <div class="row">
             <h3><%= @pageTitle %></h3>
-            
           </div>
           <% if @disciplines.empty? %>
             <div class="row">
               <div class="col-lg-6">
-                <div class="alert alert-info" role="alert" style="width:88%;">
+                <div class="alert alert-info" role="alert" style="width:750px;">
                   <%= @disciplinesNotFound %>
                 </div>
                 </div>
