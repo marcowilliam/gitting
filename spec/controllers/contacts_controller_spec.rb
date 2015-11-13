@@ -16,7 +16,6 @@ RSpec.describe ContactsController, type: :controller do
 describe "GET new" do
     it "assigns a new contact as @contact" do
       get :new, {}, valid_session
-     
     end
   end
 
