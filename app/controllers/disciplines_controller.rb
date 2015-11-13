@@ -24,6 +24,12 @@ class DisciplinesController < ApplicationController
 	def show
 		@discipline = Discipline.find(params[:id])
 		@owner = User.find(@discipline.owner_id)
+		@participantsId = @discipline.usersRegistered()
+		
+		for userInDisciplineId in @participantsId
+			@getUserInDiscipline = User.find(userInDisciplineId)
+			@participants.append(@getUserInDiscipline)
+		end
 	end
 
 	def new
