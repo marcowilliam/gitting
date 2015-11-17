@@ -7,34 +7,35 @@ class Discipline < ActiveRecord::Base
 	has_many :inscriptions
 	has_many :users, through: :inscriptions
     belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
+
 	# Method responsible for finding all disciplines that the user searched, in the DB.
 	def self.search(query)
 		where("discipline_name like ?", "%#{query}%")
 	end
 
-	def isRegistered?
-		@isRegistered = false
+	def is_registered?
+		@is_registered = false
 		@inscriptions = Inscription.where(:discipline_id => self.id)
 
 		for inscription in @inscriptions
 			if inscription.discipline_id == self.id
-				@isRegistered = true
+				@is_registered = true
 			end
 		end
 
-		return @isRegistered
+		return @is_registered
 	end
 
-	def usersRegistered
+	def users_registered
 		@inscriptions = Inscription.where(:discipline_id => self.id)
-		@listOfUsersRegistred = Array.new()
+		@list_of_users_registred = Array.new()
 
 		for inscription in @inscriptions
 			if inscription.discipline_id == self.id
-				@listOfUsersRegistred << inscription.user_id
+				@list_of_users_registred << inscription.user_id
 			end
 		end
-		return @listOfUsersRegistred
+		return @list_of_users_registred
 	end
 
 end

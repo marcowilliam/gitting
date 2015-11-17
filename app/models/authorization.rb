@@ -9,6 +9,7 @@ class Authorization < ActiveRecord::Base
 	validates_associated :user
 	validates_uniqueness_of :uid
 
+	# Method to takes api github data
 	def self.find_or_create(auth_hash)
 		unless auth = find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 			user = User.create :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
