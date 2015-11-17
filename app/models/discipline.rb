@@ -13,6 +13,7 @@ class Discipline < ActiveRecord::Base
 		where("discipline_name like ?", "%#{query}%")
 	end
 
+	# Method to verificate if the user exist in database
 	def is_registered?
 		@is_registered = false
 		@inscriptions = Inscription.where(:discipline_id => self.id)
@@ -26,6 +27,7 @@ class Discipline < ActiveRecord::Base
 		return @is_registered
 	end
 
+	# Method to return all users registered
 	def users_registered
 		@inscriptions = Inscription.where(:discipline_id => self.id)
 		@list_of_users_registred = Array.new()
