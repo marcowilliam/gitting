@@ -24,7 +24,7 @@ class ContactsController < ApplicationController
     render :action => 'new'
   end
 
-  # Definning the Class params
+  # Defining the Class params
   # @params name => Name of the mensage creator
   #         subject => Name of the mensage reciver
   #         mensage => Mensage to be sended
