@@ -20,11 +20,15 @@ class ContactsController < ApplicationController
       redirect_to :action => 'new'
       return  
     end
-
-
+    
     render :action => 'new'
   end
 
+  # Definning the Class params
+  # @params name => Name of the mensage creator
+  #         subject => Name of the mensage reciver
+  #         mensage => Mensage to be sended
+  #         email => Email of the mensage creator
   private
 
   def contact_params
