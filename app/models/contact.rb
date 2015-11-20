@@ -9,6 +9,7 @@ class Contact
 
   attr_accessor :name, :subject, :message, :email
 
+  # Method that initalizate the attributes of a contact
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
