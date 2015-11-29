@@ -80,7 +80,7 @@ class DisciplinesController < ApplicationController
 
 	# Method to associate a new instance into the current user
 	def make_disciplines
-		@disciplinesFromUser = current_user.registeredDisciplines
+		@disciplines_from_user = current_user.registered_disciplines
 		logger.debug "Recieve a list of discipline_id #{@disciplinesFromUser.kind_of?(Array)}"
 		@disciplines_registered = Array.new()
 
@@ -95,7 +95,7 @@ class DisciplinesController < ApplicationController
 	# Method to insert a new user to the discipline
 	# this user will be participant role
 	def make_participants
-		@participantsId = @discipline.usersRegistered()
+		@participants_id = @discipline.users_registered()
 		logger.debug "Recieve a list of discipline_id: #{@participantsId.kind_of?(Array)}"
 		@participants = Array.new()
 		
