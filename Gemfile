@@ -60,6 +60,9 @@ group :development do
   # Make a role administration in project
   gem 'rolify'
 
+  gem 'cucumber-rails', :require => false
+
+
    gem "bcrypt-ruby", :require => "bcrypt"
 end
 
