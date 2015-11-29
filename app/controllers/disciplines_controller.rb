@@ -20,12 +20,13 @@ class DisciplinesController < ApplicationController
 		 	@discipline_partipate = self.make_disciplines
 
 		 	@disciplines.append(@discipline_partipate)
-		 	@pageTitle = "Minhas Disciplinas"
-		 	@disciplinesNotFound = "Você não possui nenhuma disciplina, clique no 
+		 	@page_title = "Minhas Disciplinas"
+		 	@disciplines_not_found = "Você não possui nenhuma disciplina, clique no 
 		 	botão abaixo para criar uma ou pesquise disciplinas para se inscrever."
 		end
 	end
 
+	# The method show is to show one of disciplines with details
 	def show
 		@discipline = Discipline.find(params[:id])
 
@@ -35,14 +36,17 @@ class DisciplinesController < ApplicationController
 
 	end
 
+	# Instantiate a new discipline
 	def new
 		@discipline = current_user.owned_disciplines.build
 	end
 
+	# Set new params into discipline
 	def edit
 		@discipline = current_user.owned_disciplines.find(params[:id])
 	end
 
+	# Save the new discipline with validates
 	def create
 		@discipline = current_user.owned_disciplines.build(discipline_params)
 		logger.debug "Recieve a discipline of user owner #{@discipline}"
@@ -54,6 +58,7 @@ class DisciplinesController < ApplicationController
 		end
 	end
 
+	# Update the discipline edited into database
 	def update
 		@discipline = current_user.owned_disciplines.build(discipline_params)
 
@@ -64,6 +69,7 @@ class DisciplinesController < ApplicationController
 		end
 	end
 
+	# Method to remove a discipline instance
 	def destroy
 		@discipline = current_user.owned_disciplines.find(params[:id])
 		@discipline.destroy
@@ -72,34 +78,38 @@ class DisciplinesController < ApplicationController
 
 	end
 
+	# Method to associate a new instance into the current user
 	def make_disciplines
 		@disciplinesFromUser = current_user.registeredDisciplines
 		logger.debug "Recieve a list of discipline_id #{@disciplinesFromUser.kind_of?(Array)}"
-
 		@disciplines_registered = Array.new()
 
-		for disciplineId in @disciplinesFromUser
-			@getDisciplines = Discipline.find(disciplineId)
-			@disciplines_registered << @getDisciplines
+		for discipline_id in @disciplines_from_user
+			@get_disciplines = Discipline.find(discipline_id)
+			@disciplines_registered << @get_disciplines
 		end
 
 		return @disciplines_registered
 	end
 
+	# Method to insert a new user to the discipline
+	# this user will be participant role
 	def make_participants
 		@participantsId = @discipline.usersRegistered()
 		logger.debug "Recieve a list of discipline_id: #{@participantsId.kind_of?(Array)}"
-
 		@participants = Array.new()
 		
-		for userInDisciplineId in @participantsId
-			@getUserInDiscipline = User.find(userInDisciplineId)
-			@participants << @getUserInDiscipline
+		for user_in_discipline_id in @participants_id
+			@get_user_in_discipline = User.find(user_in_discipline_id)
+			@participants << @get_user_in_discipline
 		end
 
 		return @participants
 	end
 
+	# Definning the Class params
+	# @params discipline_name => Name of the discipline
+	#         discipline_description => Some things about the discipline
 	private
 
 	def discipline_params

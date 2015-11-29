@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 	#validates_associated :authentications
 	#validates_uniqueness_of :email
 
+	# Create a user instance by the github api
 	def self.create_with_omniauth(auth)
 	    create! do |user|
 	      if auth['info']
@@ -24,16 +25,17 @@ class User < ActiveRecord::Base
 	    end
   	end
 
-  	def registeredDisciplines
+  	# Method to take the registered disciplines in a user
+  	def registered_disciplines
 		@inscriptions = Inscription.where(:user_id => self.id)
-		@listOfDisciplineRegistred = Array.new()
+		@list_of_discipline_registred = Array.new()
 
 		for inscription in @inscriptions
 			if inscription.user_id == self.id
-				@listOfDisciplineRegistred << inscription.discipline_id
+				@list_of_discipline_registred << inscription.discipline_id
 			end
 		end
 
-		return @listOfDisciplineRegistred
+		return @list_of_discipline_registred
   	end
 end

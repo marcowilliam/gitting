@@ -38,6 +38,7 @@ class SessionsController < ApplicationController
 		flash[:success] =  "Você foi deslogado"
 	end
 
+	# Method to redirect if the session broke
 	def failure
 		flash[:error] = "Desculpa, mas houve um erro."
 		redirect_to root_url
