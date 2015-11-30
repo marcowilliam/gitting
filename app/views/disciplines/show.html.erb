@@ -68,7 +68,7 @@ Description: This file contains what will show independent the page show a speci
 
     </div>
 
-    <% if current_user.id != @owner.id && @discipline.isRegistered? == false %>
+    <% if current_user.id != @owner.id && @discipline.is_registered? == false %>
     <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
     <% end %>
   </div>
