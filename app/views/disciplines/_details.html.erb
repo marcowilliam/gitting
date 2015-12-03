@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">Descrição </a>
+        </h4>
+      </div>
+      <div id="collapseDescricao" class="panel-collapse collapse in">
+        <div class="panel-body ">
+          <p> <%= @discipline.discipline_description%> </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapsePessoa">Pessoas</a>
+        </h4>
+      </div>
+      <div id="collapsePessoa" class="panel-collapse collapse">
+        <div class="panel-body">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="strong"> <b><p>Criador: </b></p></td>
+                <td><p><%= @owner.username%> </p> </td>
+              </tr>
+              <tr>
+                <td class="strong"> <b><p>Participantes: </b></p></td>
+                <td>
+                  <% @participants.each do |participant|%>
+                  <p><%= participant.username %> </p>
+
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <% if current_user.id != @owner.id && @discipline.is_registered? == false %>
+  <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
+  <% end %>
+</div>

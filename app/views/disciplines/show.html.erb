@@ -9,7 +9,7 @@ Description: This file contains what will show independent the page show a speci
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content=""> 
+  <meta name="author" content="">
   <link rel="icon" href="../../favicon.ico">
   <title>Pagina Inicial</title>
   <!-- Bootstrap core CSS -->
@@ -19,64 +19,22 @@ Description: This file contains what will show independent the page show a speci
 </head>
 <body>
 
-  <div class="disciplines-layout">
-    <h3><%= @discipline.discipline_name%></h3>
-    <div class="panel-group" id="accordion">
-      
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">Descrição </a>
-          </h4>
+  <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <%= @discipline.discipline_name%>
+                    </a>
+                </li>
+                <%= render :partial => 'disciplines/details' %>
+            </ul>
         </div>
-        <div id="collapseDescricao" class="panel-collapse collapse in">
-          <div class="panel-body ">
-            <p> <%= @discipline.discipline_description%> </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapsePessoa">Pessoas</a>
-          </h4>
-        </div>
-        <div id="collapsePessoa" class="panel-collapse collapse">
-          <div class="panel-body">
-            <table class="table">
-            <tbody>
-            <tr>
-            <td class="strong"> <b><p>Criador: </b></p></td>
-            <td><p><%= @owner.username%> </p> </td>
-            </tr>
-            <tr>
-            <td class="strong"> <b><p>Participantes: </b></p></td>
-            <td>
-            <% @participants.each do |participant|%> 
-             <p><%= participant.username %> </p>
-            
-            <% end %>
-            </td>
-            </tr>
-            </tbody>
-          </table>
-          </div>
-      </div>
-      </div>
+        <!-- /#sidebar-wrapper -->
 
 
-    </div>
-
-    <% if current_user.id != @owner.id && @discipline.is_registered? == false %>
-    <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
-    <% end %>
-  </div>
-
-    
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="../../assets/stylesheets/bootstrap.min.js"></script>
 </body>
 </html>
-
