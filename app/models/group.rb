@@ -3,4 +3,12 @@
 # to represent groups made by users
 
 class Group < ActiveRecord::Base
+
+	has_many :users
+
+	# Method responsible for finding all groups that the user searched, in the DB.
+	def self.search(query)
+		where("discipline_name like ?", "%#{query}%")
+	end
+
 end
