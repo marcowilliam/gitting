@@ -8,9 +8,15 @@ class GroupsController < ApplicationController
   def new
   end
 
+  # Method responsible for creating a new group
+  def create
+    @group = Group.new(group_params)
+    render :action => 'new'
+  end
+
   # Method to show the group details
   def show
-     @user = Group.find(params[:id])
+     @group = Group.find(params[:id])
   end
 
   # Defining the Class params

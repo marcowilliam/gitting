@@ -5,10 +5,11 @@
 class Group < ActiveRecord::Base
 
 	has_many :users
+	belongs_to :disciplines
 
 	# Method responsible for finding all groups that the user searched, in the DB.
 	def self.search(query)
-		where("discipline_name like ?", "%#{query}%")
+		where("project_name like ?", "%#{query}%")
 	end
 
 end

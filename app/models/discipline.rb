@@ -5,6 +5,7 @@
 class Discipline < ActiveRecord::Base
 
 	has_many :inscriptions
+	has_many :groups
 	has_many :users, through: :inscriptions
     belongs_to :owner, :class_name => "User", :foreign_key => "owner_id"
 
