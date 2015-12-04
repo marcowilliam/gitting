@@ -1,0 +1,27 @@
+<!--
+  File name: new.html.erb
+  Description: This file contains a form to create a new group
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+
+    <h3>Novo Grupo</h3>
+
+    <%= bootstrap_form_for @groups do |f|%>
+      <p>
+        <%= f.text_field :project_name, width: "10px", label: "Projeto",required: true %>
+      </p>
+      <p>
+        <%= f.text_area :project_description, label: "Descrição" %>
+      </p>
+      <p>
+        <%= f.text_area :source, label: "Repositório" %>
+      </p>
+
+        <%= f.submit "Criar Grupo", class: "btn btn-primary" %>
+
+    <%end%>
+
+  </body>
+</html>
