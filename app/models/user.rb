@@ -3,39 +3,31 @@
 # to represent a system user
 
 class User < ActiveRecord::Base
-	
-	#creating a relation with table authentications
-	has_many :authentications
-	has_many :inscriptions
-	has_many :disciplines, through: :inscriptions
-	has_many :owned_disciplines, :class_name => "Discipline", :foreign_key => "owner_id"
+  # creating a relation with table authentications
+  has_many :authentications
+  has_many :inscriptions
+  has_many :disciplines, through: :inscriptions
+  has_many :owned_disciplines, class_name: 'Discipline', foreign_key: 'owner_id'
 
 
-	#make a validation for elements in model
-	#validates_presence_of :email, :username
-	#validates_associated :authentications
-	#validates_uniqueness_of :email
+  # Create a user instance by the github api
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.username = auth['info']['name'] || '' if auth['info']
+    end
+    end
 
-	# Create a user instance by the github api
-	def self.create_with_omniauth(auth)
-	    create! do |user|
-	      if auth['info']
-	         user.username = auth['info']['name'] || ""
-	      end
-	    end
-  	end
+  # Method to take the registered disciplines in a user
+  def registered_disciplines
+    @inscriptions = Inscription.where(user_id: id)
+    @list_of_discipline_registred = []
 
-  	# Method to take the registered disciplines in a user
-  	def registered_disciplines
-		@inscriptions = Inscription.where(:user_id => self.id)
-		@list_of_discipline_registred = Array.new()
+    for inscription in @inscriptions
+      if inscription.user_id == id
+        @list_of_discipline_registred << inscription.discipline_id
+      end
+    end
 
-		for inscription in @inscriptions
-			if inscription.user_id == self.id
-				@list_of_discipline_registred << inscription.discipline_id
-			end
-		end
-
-		return @list_of_discipline_registred
-  	end
+    @list_of_discipline_registred
+   end
 end

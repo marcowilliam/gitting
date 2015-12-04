@@ -3,6 +3,6 @@
 # to represent users that will contact the team
 
 class Inscription < ActiveRecord::Base
-	belongs_to :users
-	belongs_to :disciplines
+  belongs_to :users
+  belongs_to :disciplines
 end
