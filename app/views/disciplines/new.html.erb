@@ -4,20 +4,10 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>Pagina Inicial</title>
-    <link href="assets/disciplines.css" rel="stylesheet">
-  </head>
   <body>
     <div class="disciplines-layout">
     <h3>Crie uma nova disciplina</h3>
-    
+
     <%= bootstrap_form_for @discipline do |f|%>
       <p>
         <%= f.text_field :discipline_name, width: "10px", label: "Nome",required: true %>
@@ -26,7 +16,7 @@
         <%= f.text_area :discipline_description, label: "Descrição" %>
       </p>
 
-        <%= f.submit "Criar Drisciplina", class: "btn btn-primary" %> 
+        <%= f.submit "Criar Drisciplina", class: "btn btn-primary" %>
 
     <%end%>
     </div>
@@ -38,4 +28,3 @@
     <script src="../../assets/stylesheets/bootstrap.min.js"></script>
   </body>
 </html>
-    

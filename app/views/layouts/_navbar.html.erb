@@ -3,12 +3,6 @@
   Description: This file contains what will represent a simple element to be used in a view
 -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
@@ -44,7 +38,7 @@
                         <li>
                             <a class="page-scroll" href="#entenda" style="padding-right:50px;">Entenda a ferramenta</a>
                         </li>
-                      
+
                     <% else %>
                         <!-- Do nothing -->
                     <% end %>
@@ -55,11 +49,10 @@
                         <% else %>
                             <li><%= link_to "Contato", controller: "contacts", action: "new" %></li>
                             <li><%= link_to "Login", controller: "users", action: "new" %></li>
-                        <% end %>    
+                        <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-    
