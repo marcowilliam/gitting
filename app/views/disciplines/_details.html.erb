@@ -1,28 +1,43 @@
+<a data-parent="#accordion" data-toggle="collapse" href="#collapseDescricao">Descrição
+</a>
+<p>
+  <%= @discipline.discipline_description%>
+</p>
 
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseDescricao">Descrição </a>
-          <p> <%= @discipline.discipline_description%> </p>
+<a data-parent="#accordion" data-toggle="collapse" href="#collapsePessoa">Pessoas</a>
 
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapsePessoa">Pessoas</a>
+<table class="table">
+  <tbody>
+    <tr>
+      <td class="strong">
+        <b>
+          <p>Criador:
+          </b>
+        </p>
+      </td>
+      <td>
+        <p><%= @owner.username%>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="strong">
+        <b>
+          <p>Participantes:
+          </b>
+        </p>
+      </td>
+      <td>
+        <% @participants.each do |participant|%>
+        <p><%= participant.username %>
+        </p>
 
-          <table class="table">
-            <tbody>
-              <tr>
-                <td class="strong"> <b><p>Criador: </b></p></td>
-                <td><p><%= @owner.username%> </p> </td>
-              </tr>
-              <tr>
-                <td class="strong"> <b><p>Participantes: </b></p></td>
-                <td>
-                  <% @participants.each do |participant|%>
-                  <p><%= participant.username %> </p>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-                  <% end %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-  <% if current_user.id != @owner.id && @discipline.is_registered? == false %>
-  <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
-  <% end %>
+<% if current_user.id != @owner.id && @discipline.is_registered? == false %>
+<a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
+<% end %>

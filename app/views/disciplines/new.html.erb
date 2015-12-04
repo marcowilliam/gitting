@@ -6,9 +6,9 @@
 <html lang="en">
   <body>
     <div class="disciplines-layout">
-    <h3>Crie uma nova disciplina</h3>
+      <h3>Crie uma nova disciplina</h3>
 
-    <%= bootstrap_form_for @discipline do |f|%>
+      <%= bootstrap_form_for @discipline do |f|%>
       <p>
         <%= f.text_field :discipline_name, width: "10px", label: "Nome",required: true %>
       </p>
@@ -16,9 +16,9 @@
         <%= f.text_area :discipline_description, label: "Descrição" %>
       </p>
 
-        <%= f.submit "Criar Drisciplina", class: "btn btn-primary" %>
+      <%= f.submit "Criar Drisciplina", class: "btn btn-primary" %>
 
-    <%end%>
+      <%end%>
     </div>
 
     <!-- Bootstrap core JavaScript

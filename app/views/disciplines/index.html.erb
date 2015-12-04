@@ -6,51 +6,54 @@
 <html lang="en">
   <body style="padding-top: 6%; padding-left:2%;">
 
-        <div class="row">
-            <div class="col-lg-6">
-               <div class="input-group">
-              <%= form_tag(disciplines_path, :method => :get) do %>
-                <%= text_field_tag 'search',nil, placeholder: 'Procure por disciplinas...', :class => "form-control" %>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <%= form_tag(disciplines_path, :method => :get) do %>
+          <%= text_field_tag 'search',nil, placeholder: 'Procure por disciplinas...', :class => "form-control" %>
 
-                <span class="input-group-btn">
-                <%= submit_tag "Buscar", :class => "btn btn-default" %>
-                </span>
-              <% end %>
+          <span class="input-group-btn">
+            <%= submit_tag "Buscar", :class => "btn btn-default" %>
+          </span>
+          <% end %>
 
-              </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
-          <div class="disciplines-layout">
-          <div class="row">
-            <h3><%= @pageTitle %></h3>
-          </div>
-          <% if @disciplines.empty? %>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="alert alert-info" role="alert" style="width:750px;">
-                  <%= @disciplinesNotFound %>
-                </div>
-                </div>
-          </div>
-          <%else%>
-            <div class="row">
-             <%@disciplines.each do |discipline|%>
-              <div class="col-sm-4 col-md-3">
-                <div class="thumbnail">
-                  <%=image_tag("disciplinas_image.png", style: 'padding-top: 0%; padding-left: 0%; height: 40px;')%>
-                  <div class="caption">
-                    <h3 style="text-align:center"><%= discipline.discipline_name%></h3>
-                    <p><%= discipline.discipline_description %></p>
-                    <%= link_to "Entrar", discipline_path(discipline), :class => "btn btn-default" %>
-                  </div>
-                </div>
-              </div>
-             <%end%>
-            </div>
-          <%end%>
-          <p>
-            <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a>
-          </p>
+        </div>
+        <!-- /input-group -->
       </div>
+      <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+    <div class="disciplines-layout">
+      <div class="row">
+        <h3><%= @pageTitle %></h3>
+      </div>
+      <% if @disciplines.empty? %>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="alert alert-info" role="alert" style="width:750px;">
+            <%= @disciplinesNotFound %>
+          </div>
+        </div>
+      </div>
+      <%else%>
+      <div class="row">
+        <%@disciplines.each do |discipline|%>
+        <div class="col-sm-4 col-md-3">
+          <div class="thumbnail">
+            <%=image_tag("disciplinas_image.png", style: 'padding-top: 0%; padding-left: 0%; height: 40px;')%>
+            <div class="caption">
+              <h3 style="text-align:center"><%= discipline.discipline_name%></h3>
+              <p><%= discipline.discipline_description %></p>
+              <%= link_to "Entrar", discipline_path(discipline), :class => "btn btn-default" %>
+            </div>
+          </div>
+        </div>
+        <%end%>
+      </div>
+      <%end%>
+      <p>
+        <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Criar uma disciplina</a>
+      </p>
+    </div>
   </body>
 </html>
