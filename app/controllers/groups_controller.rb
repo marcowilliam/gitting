@@ -5,12 +5,12 @@
 class GroupsController < ApplicationController
   # Method to create a group instance
   def new
+    @group = Group.new
   end
 
   # Method responsible for creating a new group
   def create
     @group = Group.new(group_params)
-    render action: 'new'
   end
 
   # Method to show the group details
