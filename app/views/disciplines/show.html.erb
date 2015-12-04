@@ -4,9 +4,9 @@ Description: This file contains what will show independent the page show a speci
 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Gitting:
-      <%= @discipline.discipline_name%></title>
+<head>
+  <title>Gitting:
+    <%= @discipline.discipline_name%></title>
   </head>
   <body>
     <div id="wrapper">
@@ -28,4 +28,24 @@ Description: This file contains what will show independent the page show a speci
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-              <p class="btn btn-primary" href="#menu-toggle" id="menu-toggle"><<</p> <div class="container-discipline"> <%= render :partial => 'groups/index' %><br> <p class="btn btn-primary btn-lg" href="/groups/new" role="button">Criar um Grupo</p> </div> </div> </div> </div> </div> </div> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> <script> $("#menu-toggle").click(function(e) { e.preventDefault(); $("#wrapper").toggleClass("toggled"); }); </script> </body> </html> 
+              <p class="btn btn-primary" href="#menu-toggle" id="menu-toggle">>></p>
+              <div class="container-discipline">
+                <%= render :partial => 'groups/index' %>
+                <br>
+                <p class="btn btn-primary btn-lg" href="/groups/new" role="button">Criar um Grupo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+  </body>
+  </html>

@@ -1,11 +1,11 @@
 # File from Rails framework to configure the routes
 
 Rails.application.routes.draw do
-
   resources :users
   resources :contacts
   resources :disciplines
   resources :groups
+
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
@@ -17,8 +17,7 @@ Rails.application.routes.draw do
 
   get '/auth/github', as: 'github_login'
   get '/signin' => 'users#new', as: 'login'
-  get "/auth/:provider/callback" => "sessions#create"
-  get "/logout" => "sessions#destroy"
-  get '/auth/failure', :to => 'sessions#failure'
-
+  get '/auth/:provider/callback' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/auth/failure', to: 'sessions#failure'
 end
