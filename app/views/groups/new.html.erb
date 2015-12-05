@@ -12,7 +12,6 @@
   	  <%= f.input :project_name , :label => "Nome do Projeto", as: :text%>
       <%= f.input :source , :label => "Repositório", as: :text%>
       <%= f.input :project_description , :label => "Descrição", as: :text%>
-  	  <%= f.hidden_field :discipline_id, :value => params[:discipline]  %>
 
   	  <%= submit_tag "Confirmar",:name => nil, class:"btn btn-primary dropdown-toggle icon-white icon-user" %>
 

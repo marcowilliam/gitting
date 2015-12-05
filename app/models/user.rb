@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :inscriptions
   has_many :disciplines, through: :inscriptions
   has_many :owned_disciplines, class_name: 'Discipline', foreign_key: 'owner_id'
+  has_many :users, :through => :users_groups
+  has_many :users_groups
 
 
   # Create a user instance by the github api

@@ -3,8 +3,10 @@
 Rails.application.routes.draw do
   resources :users
   resources :contacts
-  resources :disciplines
-  resources :groups
+  resources :disciplines do
+      resources :groups
+  end
+
 
   # You can have the root of your site routed with "root"
   root 'static_pages#home'

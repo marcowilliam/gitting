@@ -3,7 +3,8 @@
 # to represent groups made by users
 
 class Group < ActiveRecord::Base
-  has_many :users
+  has_many :users, :through => :users_groups
+  has_many :users_groups
   belongs_to :discipline, :foreign_key => :discipline_id, class_name: 'Discipline'
 
   # Method responsible for finding all groups that the user searched, in the DB.
