@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @groups.save
-        format.html { redirect_to dashboard_path, notice: 'Grupo criado com sucesso' }
+        format.html { redirect_to discipline_path(@groups.discipline_id), notice: 'Grupo criado com sucesso' }
       else
         format.html { render :new }
       end
@@ -41,6 +41,6 @@ class GroupsController < ApplicationController
   def group_params
     params
       .fetch(:group, {})
-      .permit(:project_name, :project_description, :source)
+      .permit(:project_name, :project_description, :source, :discipline_id, :user_id)
   end
 end

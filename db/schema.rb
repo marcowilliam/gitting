@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20151113011142) do
   end
 
   create_table "groups", force: :cascade do |t|
+    t.integer  "discipline_id"
+    t.integer  "user_id"
     t.string   "project_name"
     t.string   "project_description"
     t.string   "source"

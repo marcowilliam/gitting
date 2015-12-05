@@ -23,6 +23,7 @@ Description: This file contains what will show independent the page show a speci
           </li>
         </ul>
       </div>
+
       <!-- /#sidebar-wrapper -->
       <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -33,7 +34,7 @@ Description: This file contains what will show independent the page show a speci
                 <%= render :partial => 'groups/index' %>
                 <br>
                 <%= link_to raw("<i class=\"fa fa-users\"> Criar um grupo </i>"),
-                      new_group_path(@discipline.id), class: "btn btn-primary  btn-small"%>
+                      new_group_path(@discipline), class: "btn btn-primary  btn-small"%>
               </div>
             </div>
           </div>
