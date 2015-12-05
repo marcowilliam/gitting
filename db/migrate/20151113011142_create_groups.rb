@@ -4,6 +4,8 @@ class CreateGroups < ActiveRecord::Migration
       t.string :project_name
       t.string :project_description
       t.string :source
+      t.index [:discipline_id], unique: true
+      t.index :user_id
       t.timestamps null: false
     end
   end

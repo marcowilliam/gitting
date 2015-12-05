@@ -1,4 +1,4 @@
-# Gemfile is a file from Rails Framework to include the specified gems to use in project. 
+# Gemfile is a file from Rails Framework to include the specified gems to use in project.
 # This gems will be include in bundle install list do installing in the project.
 source 'https://rubygems.org'
 
@@ -6,7 +6,7 @@ gem 'bootstrap_form'
 gem 'bootstrap-material-design'
 gem "font-awesome-rails"
 gem "therubyracer"
-
+gem 'simple_form'
 gem "twitter-bootstrap-rails"
 gem 'autoprefixer-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer'
-gem 'less-rails'	
+gem 'less-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -65,4 +65,3 @@ group :development do
 
    gem "bcrypt-ruby", :require => "bcrypt"
 end
-

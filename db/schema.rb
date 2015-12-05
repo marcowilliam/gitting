@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 20151113011142) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.integer  "group_number"
-    t.string   "group_theme"
-    t.string   "group_description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "project_name"
+    t.string   "project_description"
+    t.string   "source"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "inscriptions", force: :cascade do |t|

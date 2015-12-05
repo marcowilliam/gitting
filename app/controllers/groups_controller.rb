@@ -3,14 +3,27 @@
 # to take actions for all groups.
 
 class GroupsController < ApplicationController
+
   # Method to create a group instance
   def new
-    @group = Group.new
+    @groups = Group.new
+  end
+
+  def index
+    @groups = Group.all
   end
 
   # Method responsible for creating a new group
   def create
-    @group = Group.new(group_params)
+    @groups = Group.new(group_params)
+
+    respond_to do |format|
+      if @groups.save
+        format.html { redirect_to dashboard_path, notice: 'Grupo criado com sucesso' }
+      else
+        format.html { render :new }
+      end
+    end
   end
 
   # Method to show the group details
@@ -27,7 +40,7 @@ class GroupsController < ApplicationController
 
   def group_params
     params
-      .require(:group)
+      .fetch(:group, {})
       .permit(:project_name, :project_description, :source)
   end
 end

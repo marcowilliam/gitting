@@ -4,7 +4,7 @@
 
 class Group < ActiveRecord::Base
   has_many :users
-  belongs_to :disciplines
+  belongs_to :discipline, :foreign_key => :discipline_id, class_name: 'Discipline'
 
   # Method responsible for finding all groups that the user searched, in the DB.
   def self.search(query)

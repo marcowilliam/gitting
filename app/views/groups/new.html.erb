@@ -8,18 +8,13 @@
 
     <h3>Novo Grupo</h3>
 
-    <%= bootstrap_form_for @group do |f|%>
-    <p>
-      <%= f.text_field :project_name, width: "10px", label: "Projeto",required: true %>
-    </p>
-    <p>
-      <%= f.text_area :project_description, label: "Descrição" %>
-    </p>
-    <p>
-      <%= f.text_area :source, label: "Repositório" %>
-    </p>
-
-    <%= f.submit "Criar Grupo", class: "btn btn-primary" %>
+    <%= simple_form_for @groups, url: {action:"create"} do |f| %>
+  	  <%= f.input :project_name , :label => "Nome do Projeto", as: :text%>
+      <%= f.input :source , :label => "Repositório", as: :text%>
+      <%= f.input :project_description , :label => "Descrição", as: :text%>
+  	  <%= f.hidden_field :discipline_id, :value => params[:discipline_id]  %>
+  	  <!--<%= f.hidden_field :usuer_id, :value => current_usuer.id %>-->
+  	  <%= submit_tag "Confirmar",:name => nil, class:"btn btn-primary dropdown-toggle icon-white icon-user" %>
 
     <%end%>
 
