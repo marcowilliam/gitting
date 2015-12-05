@@ -10,7 +10,19 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
+    if params[:search]
+      @groups = Group.search(params[:search])
+      logger.debug "Recieve a group of user owner #{@group}"
+
+      @pageTitle = 'Resultado da Busca'
+      @groupsNotFound = 'Nenhum grupo encontrada...'
+    else
+      @groups = Group.find(@discipline)
+
+      @page_title = 'Meus Grupos'
+      @groups_not_found = "Não existe nenhum Grupo criado, clique no
+     botão abaixo para criar um."
+    end
   end
 
   # Method responsible for creating a new group
@@ -19,8 +31,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @groups.save
-        # FIX redirect_to discipline_path
-        format.html { redirect_to disciplines_path , notice: 'Grupo criado com sucesso' }
+        format.html { redirect_to discipline_path , notice: 'Grupo criado com sucesso' }
       else
         format.html { render :new }
       end
@@ -42,6 +53,6 @@ class GroupsController < ApplicationController
   def group_params
     params
       .fetch(:group, {})
-      .permit(:project_name, :project_description, :source, :discipline_id, :user_id)
+      .permit(:project_name, :project_description, :source, :discipline_id)
   end
 end
