@@ -13,7 +13,7 @@ class DisciplinesController < ApplicationController
       logger.debug "Recieve a discipline of user owner #{@discipline}"
 
       @pageTitle = 'Resultado da Busca'
-      @disciplinesNotFound = 'Nenhuma disciplina encontrada...'
+      @disciplines_not_found = 'Nenhuma disciplina encontrada...'
     else
       @disciplines = current_user.owned_disciplines
       @discipline_partipate = make_disciplines
