@@ -41,8 +41,8 @@ class DisciplinesController < ApplicationController
 
       @page_title = 'Resultado da Busca'
       @groups_not_found = 'Nenhum grupo encontrado...'
-    else
-      @page_title = 'Meus Grupos'
+    else  
+      @page_title = "Grupos da disciplina #{@discipline.discipline_name}"
       @groups_not_found = "Não existe nenhum Grupo criado, clique no
      botão abaixo para criar um."
     end
