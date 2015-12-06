@@ -8,7 +8,7 @@ Description: This file contains what will show independent the page show a speci
   <title>Gitting:
     <%= @discipline.discipline_name%></title>
   </head>
-  <body>
+  <body style = "paddin-top=-1%; color:white;">
     <div id="wrapper">
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
@@ -29,7 +29,7 @@ Description: This file contains what will show independent the page show a speci
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-12">
-              <p class="btn btn-primary" href="#menu-toggle" id="menu-toggle">>></p>
+              <p class="btn btn-primary" href="#menu-toggle" id="menu-toggle"><< | >></p>
               <div class="container-discipline">
                 <%= render :file => 'groups/index' %>
                 <br>
