@@ -1,8 +1,16 @@
 <a data-parent="#accordion" data-toggle="collapse" href="#collapseDescricao">Descrição
 </a>
+<table class="table">
+  <tbody>
+    <tr>
+      <td class="strong">
 <p>
   <%= @discipline.discipline_description%>
 </p>
+</td>
+</tr>
+  </tbody>
+</table>
 
 <a data-parent="#accordion" data-toggle="collapse" href="#collapsePessoa">Pessoas</a>
 
@@ -15,10 +23,7 @@
           </b>
         <%= @owner.username%>
         </p>
-      </td>
-    </tr>
-    <tr>
-      <td class="strong">
+ 
         <b>
           <p>Participantes:
           </b>
@@ -35,5 +40,8 @@
 </table>
 
 <% if current_user.id != @owner.id && @discipline.is_registered? == false %>
-<a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
+<a class="btn btn-primary btn-sm" href="/disciplines/new" role="button">Inscreva-se</a>
+<% end %>
+<% if current_user.id == @owner.id %>
+<%= link_to 'Excluir', @discipline, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa disciplina?' }, class: "btn btn-danger btn-xs", style: "color:white; text-decoration:none;" %>
 <% end %>

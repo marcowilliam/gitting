@@ -8,6 +8,7 @@ class DisciplinesController < ApplicationController
   # The method index will show all the disciplines the user has, but if a search
   # has been done, it will show the results for the search
   def index
+    
     if params[:search]
       @disciplines = Discipline.search(params[:search])
       logger.debug "Recieve a discipline of user owner #{@discipline}"
@@ -33,16 +34,16 @@ class DisciplinesController < ApplicationController
     @owner = User.find(@discipline.owner_id)
 
     @participants = make_participants
+    @groups = Group.where("discipline_id = ?", @discipline.id)
 
     if params[:search]
-      @groups = Group.search(params[:search])
+      @groups = @groups.search(params[:search])
       logger.debug "Recieve a group of user owner #{@group}"
 
       @page_title = 'Resultado da Busca'
-      @groups_not_found = 'Nenhum grupo encontrada...'
-    else
-      @groups = Group.where("discipline_id = ?", @discipline.id)
-      @page_title = 'Meus Grupos'
+      @groups_not_found = 'Nenhum grupo encontrado...'
+    else  
+      @page_title = "Grupos da disciplina #{@discipline.discipline_name}"
       @groups_not_found = "Não existe nenhum Grupo criado, clique no
      botão abaixo para criar um."
     end
