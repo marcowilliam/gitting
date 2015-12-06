@@ -40,6 +40,6 @@ class GroupsController < ApplicationController
   def group_params
     params
       .fetch(:group, {})
-      .permit(:project_name, :project_description, :source, :discipline_id)
+      .permit(:project_name, :project_description,:discipline_id)
   end
 end

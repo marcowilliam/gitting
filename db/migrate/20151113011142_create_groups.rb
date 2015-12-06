@@ -4,7 +4,6 @@ class CreateGroups < ActiveRecord::Migration
       t.references :discipline
       t.string :project_name
       t.string :project_description
-      t.string :source
       t.timestamps null: false
     end
   end

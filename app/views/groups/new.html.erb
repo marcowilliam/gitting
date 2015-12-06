@@ -10,7 +10,6 @@
 
     <%= simple_form_for @groups, url: {action:"create"} do |f| %>
   	  <%= f.input :project_name , :label => "Nome do Projeto", as: :text%>
-      <%= f.input :source , :label => "Repositório", as: :text%>
       <%= f.input :project_description , :label => "Descrição", as: :text%>
       <%= f.hidden_field :discipline_id, :value => params[:discipline_id] %>
 
