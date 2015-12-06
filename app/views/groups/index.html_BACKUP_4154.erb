@@ -6,9 +6,15 @@
 <html lang="en">
   <body style="padding-top: 6%; padding-left:2%;">
     <div class="row">
+<<<<<<< HEAD
         <div class="input-group" style ="width:70%;padding-left:30%;">
           <center>
+          <%= form_tag(discipline_path(@discipline.id), :method => :get) do %>
+=======
+      <div class="col-lg-6">
+        <div class="input-group">
           <%= form_tag(discipline_groups_path(1), :method => :get) do %>
+>>>>>>> 592fc2ee7fdf5c1036941808480dc2f3fb3b121e
           <%= text_field_tag 'search',nil, placeholder: 'Procure por grupos...', :class => "form-control" %>
         </center>
           <span class="input-group-btn">
