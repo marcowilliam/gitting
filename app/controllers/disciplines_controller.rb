@@ -12,8 +12,9 @@ class DisciplinesController < ApplicationController
       @disciplines = Discipline.search(params[:search])
       logger.debug "Recieve a discipline of user owner #{@discipline}"
 
-      @pageTitle = 'Resultado da Busca'
+      @page_title = 'Resultado da Busca'
       @disciplines_not_found = 'Nenhuma disciplina encontrada...'
+
     else
       @disciplines = current_user.owned_disciplines
       @discipline_partipate = make_disciplines
@@ -32,6 +33,19 @@ class DisciplinesController < ApplicationController
     @owner = User.find(@discipline.owner_id)
 
     @participants = make_participants
+
+    if params[:search]
+      @groups = Group.search(params[:search])
+      logger.debug "Recieve a group of user owner #{@group}"
+
+      @page_title = 'Resultado da Busca'
+      @groups_not_found = 'Nenhum grupo encontrada...'
+    else
+      @groups = Group.where("discipline_id = ?", @discipline.id)
+      @page_title = 'Meus Grupos'
+      @groups_not_found = "Não existe nenhum Grupo criado, clique no
+     botão abaixo para criar um."
+    end
   end
 
   # Instantiate a new discipline

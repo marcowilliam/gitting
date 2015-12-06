@@ -14,8 +14,8 @@ class GroupsController < ApplicationController
       @groups = Group.search(params[:search])
       logger.debug "Recieve a group of user owner #{@group}"
 
-      @pageTitle = 'Resultado da Busca'
-      @groupsNotFound = 'Nenhum grupo encontrada...'
+      @page_title = 'Resultado da Busca'
+      @groups_not_found = 'Nenhum grupo encontrada...'
     else
       @groups = Group.find(@discipline.id)
       @page_title = 'Meus Grupos'
