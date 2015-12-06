@@ -39,6 +39,9 @@
   </tbody>
 </table>
 
-<% if current_user.id != @owner.id && @discipline.is_registered? == true %>
+<% if current_user.id != @owner.id && @discipline.is_registered? == false %>
 <a class="btn btn-primary btn-sm" href="/disciplines/new" role="button">Inscreva-se</a>
+<% end %>
+<% if current_user.id == @owner.id %>
+<%= link_to 'Excluir', @discipline, method: :delete, data: { confirm: 'Tem certeza que deseja excluir essa disciplina?' }, class: "btn btn-danger btn-xs", style: "color:white; text-decoration:none;" %>
 <% end %>

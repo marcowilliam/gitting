@@ -45,6 +45,9 @@
             <div class="caption">
               <h3 style="text-align:center"><%= discipline.discipline_name%></h3>
               <p><%= discipline.discipline_description %></p>
+              <% if current_user.id == discipline.owner_id %>
+              <p style="color:red;"> (dono) </p>
+              <% end %>
               <%= link_to "Entrar", discipline_path(discipline), :class => "btn btn-default" %>
             </div>
           </div>

@@ -33,7 +33,7 @@ Description: This file contains what will show independent the page show a speci
               <div class="container-discipline">
                 <%= render :file => 'groups/index' %>
                 <br>
-                <% if current_user.id == @owner.id || @discipline.is_registered? == false %>
+                <% if current_user.id == @owner.id || @discipline.is_registered? == true %>
                 <%= link_to raw("<i class=\"fa fa-users\"> Criar um grupo </i>"),
                       new_discipline_group_path(@discipline), class: "btn btn-primary  btn-small"%>
                 <% end %>

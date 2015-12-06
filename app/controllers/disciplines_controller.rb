@@ -8,6 +8,7 @@ class DisciplinesController < ApplicationController
   # The method index will show all the disciplines the user has, but if a search
   # has been done, it will show the results for the search
   def index
+    
     if params[:search]
       @disciplines = Discipline.search(params[:search])
       logger.debug "Recieve a discipline of user owner #{@discipline}"
