@@ -1,0 +1,20 @@
+<!--
+  File name: new.html.erb
+  Description: This file contains a form to create a new group
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+
+    <h3>Novo Repositorio</h3>
+
+    <%= simple_form_for @groups, url: {action:"create"} do |f| %>
+  	  <%= f.input :repository_name , :label => "Nome do Repositorio", as: :text%>
+      <%= f.input :owner_name, :label => "Criador", as: :text%>
+      <%= f.hidden_field :group_id, :value => params[:group_id] %>
+
+  	  <%= submit_tag "Confirmar",:name => nil, class:"btn btn-primary dropdown-toggle icon-white icon-user" %>
+   
+    <%end%>
+  </body>
+</html>
