@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @groups.save
-        format.html { redirect_to discipline_path , notice: 'Grupo criado com sucesso' }
+        format.html { redirect_to discipline_path(Group.find(params[:discipline_id])) , notice: 'Grupo criado com sucesso' }
       else
         format.html { render :new }
       end
