@@ -44,7 +44,7 @@
                     <% end %>
                         <!-- Show different menu element with user is logged -->
                         <% if logged_in? %>
-                            <li><a><%= current_user.username %></a></li>
+                            <li><a href="<%= edit_user_path(current_user.id)  %>"><%= current_user.username %></a></li>
                             <li><%= link_to  "Logout", controller: "sessions", action: "destroy" %></li>
                         <% else %>
                             <li><%= link_to "Contato", controller: "contacts", action: "new" %></li>
