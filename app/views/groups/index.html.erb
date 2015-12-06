@@ -5,13 +5,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <body style="padding-top: 6%; padding-left:2%;">
-
     <div class="row">
       <div class="col-lg-6">
         <div class="input-group">
-          <%= form_tag(discipline_groups_path, :method => :get) do %>
+          <%= form_tag(discipline_groups_path(@discipline.id), :method => :get) do %>
           <%= text_field_tag 'search',nil, placeholder: 'Procure por grupos...', :class => "form-control" %>
-
           <span class="input-group-btn">
             <%= submit_tag "Buscar", :class => "btn btn-default" %>
           </span>
@@ -27,7 +25,7 @@
       <div class="row">
         <h3><%= @pageTitle %></h3>
       </div>
-      <% if @groups.empty? %>
+      <% if @groups == nil%>
       <div class="row">
         <div class="col-lg-6">
           <div class="alert alert-info" role="alert" style="width:750px;">
@@ -51,9 +49,6 @@
         <%end%>
       </div>
       <%end%>
-      <p>
-        <a class="btn btn-primary btn-lg" href="/groups/new" role="button">Criar uma grupo</a>
-      </p>
     </div>
   </body>
 </html>
