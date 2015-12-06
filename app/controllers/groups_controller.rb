@@ -17,8 +17,7 @@ class GroupsController < ApplicationController
       @pageTitle = 'Resultado da Busca'
       @groupsNotFound = 'Nenhum grupo encontrada...'
     else
-      @groups = Group.find(@discipline)
-
+      @groups = Group.find(@discipline.id)
       @page_title = 'Meus Grupos'
       @groups_not_found = "Não existe nenhum Grupo criado, clique no
      botão abaixo para criar um."
