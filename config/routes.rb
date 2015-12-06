@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :contacts
   resources :disciplines do
-      resources :groups do
+      resources :groups, shallow: true do
         resources :repository
       end
   end
