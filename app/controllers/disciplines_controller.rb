@@ -33,15 +33,15 @@ class DisciplinesController < ApplicationController
     @owner = User.find(@discipline.owner_id)
 
     @participants = make_participants
+    @groups = Group.where("discipline_id = ?", @discipline.id)
 
     if params[:search]
-      @groups = Group.search(params[:search])
+      @groups = @groups.search(params[:search])
       logger.debug "Recieve a group of user owner #{@group}"
 
       @page_title = 'Resultado da Busca'
-      @groups_not_found = 'Nenhum grupo encontrada...'
+      @groups_not_found = 'Nenhum grupo encontrado...'
     else
-      @groups = Group.where("discipline_id = ?", @discipline.id)
       @page_title = 'Meus Grupos'
       @groups_not_found = "Não existe nenhum Grupo criado, clique no
      botão abaixo para criar um."
