@@ -34,6 +34,6 @@
   </tbody>
 </table>
 
-<% if current_user.id != @owner.id && @discipline.is_registered? == false %>
+<% if current_user.id != @owner.id && @discipline.is_registered? == true %>
 <a class="btn btn-primary btn-lg" href="/disciplines/new" role="button">Inscreva-se</a>
 <% end %>
