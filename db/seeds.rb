@@ -7,11 +7,11 @@ User.create(id:4, username:"Edson")
 User.create(id:5, username:"André")
 User.create(id:6, username:"Milene")
 
-Discipline.create(discipline_name: 'TecProg', discipline_description: 'Curso de Técnicas de Programação', discipline_year: '2015', owner_id: 2)
-Discipline.create(discipline_name: 'Requisitos', discipline_description: 'Curso de Engenharia de Requisitos', discipline_year: '2015', owner_id: 3)
-Discipline.create(discipline_name: 'PPC', discipline_description: 'Curso de Programação Para Competição', discipline_year: '2015', owner_id: 4)
-Discipline.create(discipline_name: 'IHC', discipline_description: 'Curso de Interação Humano Computador', discipline_year: '2015', owner_id: 5)
-Discipline.create(discipline_name: 'Desenho', discipline_description: 'Curso de Desenho de Software', discipline_year: '2015', owner_id: 5)
+Discipline.create(discipline_name: 'TecProg', discipline_description: 'Curso de Técnicas de Programação', discipline_year: '2015', user_id: 2)
+Discipline.create(discipline_name: 'Requisitos', discipline_description: 'Curso de Engenharia de Requisitos', discipline_year: '2015', user_id: 3)
+Discipline.create(discipline_name: 'PPC', discipline_description: 'Curso de Programação Para Competição', discipline_year: '2015', user_id: 4)
+Discipline.create(discipline_name: 'IHC', discipline_description: 'Curso de Interação Humano Computador', discipline_year: '2015', user_id: 5)
+Discipline.create(discipline_name: 'Desenho', discipline_description: 'Curso de Desenho de Software', discipline_year: '2015', user_id: 5)
 
 
 Inscription.create(user_id:2, discipline_id:2)

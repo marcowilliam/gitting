@@ -17,18 +17,4 @@ class User < ActiveRecord::Base
       user.username = auth['info']['name'] || '' if auth['info']
     end
     end
-
-  # Method to take the registered disciplines in a user
-  def registered_disciplines
-    @inscriptions = Inscription.where(user_id: id)
-    @list_of_discipline_registred = []
-
-    for inscription in @inscriptions
-      if inscription.user_id == id
-        @list_of_discipline_registred << inscription.discipline_id
-      end
-    end
-
-    @list_of_discipline_registred
-   end
 end

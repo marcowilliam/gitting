@@ -17,10 +17,8 @@ class DisciplinesController < ApplicationController
       @disciplines_not_found = 'Nenhuma disciplina encontrada...'
 
     else
-      @disciplines = current_user.disciplines
-      @discipline_partipate = make_disciplines
+      @disciplines = make_disciplines
 
-      @disciplines.append(@discipline_partipate)
       @page_title = 'Minhas Disciplinas'
       @disciplines_not_found = "Você não possui nenhuma disciplina, clique no
      botão abaixo para criar uma ou pesquise disciplinas para se inscrever."
@@ -92,7 +90,7 @@ class DisciplinesController < ApplicationController
 
   # Method to associate a new instance into the current user
   def make_disciplines
-    @disciplines_from_user = current_user.disciplines
+    @disciplines_from_user = registered_disciplines(current_user)
     logger.debug "Recieve a list of discipline_id #{@disciplinesFromUser.is_a?(Array)}"
     @disciplines_registered = []
 
@@ -117,6 +115,21 @@ class DisciplinesController < ApplicationController
     end
 
     @participants
+  end
+
+  def registered_disciplines(user)
+    @inscriptions = Inscription.where(user_id: user.id)
+    @list_of_discipline_registred = []
+
+    @inscriptions.each do |inscription|
+        @list_of_discipline_registred.push(inscription.discipline_id)
+    end
+
+    current_user.disciplines.each do |discipline|
+       @list_of_discipline_registred.push(discipline.id)
+    end
+
+    @list_of_discipline_registred
   end
 
   # Definning the Class params
