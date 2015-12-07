@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
+  match 'inscription/new/:user_id/:discipline_id' => 'inscriptions#create', :as => :inscription_create, via: :get
+
+
   get 'static_pages/about', as: 'about'
   get 'static_pages/home'
   get 'contacts/new'
