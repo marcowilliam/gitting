@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @groups = Group.all
   end
 
   # Method responsible for creating a new group
@@ -69,6 +70,6 @@ class GroupsController < ApplicationController
   def group_params
     params
       .fetch(:group, {})
-      .permit(:project_name, :project_description,:discipline_id,:repository_name,:repository_owner)
+      .permit(:project_name, :project_description,:discipline_id,:repository_name,:repository_owner, :group_owner, user_ids: [])
   end
 end

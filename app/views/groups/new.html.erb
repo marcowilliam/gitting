@@ -15,6 +15,7 @@
       <%= f.input :repository_owner , :label => "Dono do Repositório", as: :text%>
 
       <%= f.hidden_field :discipline_id, :value => params[:discipline_id] %>
+      <%= f.hidden_field :group_owner_id, :value => current_user.id %>
 
   	  <%= submit_tag "Confirmar",:name => nil, class:"btn btn-primary dropdown-toggle icon-white icon-user" %>
 
