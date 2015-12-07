@@ -10,15 +10,8 @@ RSpec.configure do |config|
                         'email' => 'fulano@dominio.com',
                         'nickname' => 'fulano'
                     },
-                    
-                    'extra' => {
-                      'raw_info' => { 
-                        'location' => 'Brasilia',
-                        'gravatar_id' => '123456789'
-                      }
-                    }
                   }
- 
+
   OmniAuth.config.add_mock(:github, omniauth_hash)
 
   require 'simplecov'
@@ -27,14 +20,14 @@ RSpec.configure do |config|
     add_filter '/config/'
     add_filter '/lib/'
     add_filter '/vendor/'
-   
+
     add_group 'Controllers', 'app/controllers'
     add_group 'Models', 'app/models'
     add_group 'Helpers', 'app/helpers'
     add_group 'Mailers', 'app/mailers'
     add_group 'Views', 'app/views'
   end
-  
+
   require "codeclimate-test-reporter"
   CodeClimate::TestReporter.start
 
