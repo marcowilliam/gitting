@@ -33,13 +33,14 @@ class GroupsController < ApplicationController
   # Defining the Class params
   # @params project_name => name of the group project
   #         project_description => description of the group project
-  #         source => repository of the group with the source code
+  #         repository_name => repository of the group with the source code
+  #         repository_owner => owner to repository to consult Git API
 
   private
 
   def group_params
     params
       .fetch(:group, {})
-      .permit(:project_name, :project_description,:discipline_id)
+      .permit(:project_name, :project_description,:discipline_id,:repository_name,:repository_owner)
   end
 end
