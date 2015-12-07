@@ -5,6 +5,10 @@ languages:
    CSS: true
 exclude_paths:
 - "test/*"
+- "spec/*"
+- "config/*"
+- "db/*"
+- "app/controllers/inscriptions"
 
 engines:
   rubocop:

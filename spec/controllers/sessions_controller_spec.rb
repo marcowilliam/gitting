@@ -42,10 +42,6 @@ RSpec.describe SessionsController, type: :controller do
       response.should redirect_to root_url
     end
   end
-
-	describe "#failure" do
-		get :failure
-		response.should redirect_to root_url
-	end
+	
 
 end
