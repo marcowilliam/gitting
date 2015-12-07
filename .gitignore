@@ -46,7 +46,7 @@ Gemfile.lock
 
 #My ignored files
 coverage/
-db/schema.rb/
+db/schema.rb
 Gemfile.lock/
 public/system/
 # Ignore application configuration

@@ -10,6 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def index
+    @groups = Group.all
   end
 
   # Method responsible for creating a new group

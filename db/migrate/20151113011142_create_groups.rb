@@ -2,7 +2,7 @@ class CreateGroups < ActiveRecord::Migration
   def change
     create_table :groups do |t|
       t.references :discipline
-      t.references :group_owner
+      t.references :group_owner_id
       t.string :project_name
       t.string :project_description
       t.string :repository_name
