@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :contacts
   resources :disciplines do
-      resources :groups, shallow: true do
-        resources :repository
-      end
+      resources :groups, shallow: true 
   end
 
   # You can have the root of your site routed with "root"
