@@ -1,5 +1,5 @@
 <div class="container">
-<%= simple_form_for User.update(current_user), url: {action:"update"}  do |form| %>
+<%= simple_form_for current_user, url: {action:"update"}  do |form| %>
    <%= form.input :email , :label => "Email", as: :text %>
    <%= submit_tag "Confirmar",:name => nil, class:"btn btn-primary dropdown-toggle icon-white icon-user" %>
 

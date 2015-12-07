@@ -14,8 +14,9 @@ class UsersController < ApplicationController
 
   # Method to edit the User details
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
-      if @users.update(:email)
+      if @user.update_attributes[params(:email)]
         format.html { redirect_to usuarios_path, notice: 'Alteração realizada com sucesso' }
       else
         format.html { render :new }

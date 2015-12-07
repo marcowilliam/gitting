@@ -1,34 +1,34 @@
-<a data-parent="#accordion" data-toggle="collapse" href="#collapseDescricao">Descrição
+<a data-parent="#accordion" data-toggle="collapse" href="#description">Descrição
 </a>
-<table class="table">
+<table class="table" id="description">
   <tbody>
     <tr>
-      <td class="strong">
-<p>
-  <%= @discipline.discipline_description%>
-</p>
-</td>
-</tr>
+      <td>
+        <p>
+          <%= @discipline.discipline_description%>
+        </p>
+      </td>
+    </tr>
   </tbody>
 </table>
 
-<a data-parent="#accordion" data-toggle="collapse" href="#collapsePessoa">Pessoas</a>
+<a data-parent="#accordion" data-toggle="collapse" href="#people">Pessoas</a>
 
-<table class="table">
+<table class="table" id="people">
   <tbody>
     <tr>
-      <td class="strong">
+      <td>
         <b>
           <p>Criador:
           </b>
-        <%= @owner.username%>
+          <%= @owner.username%>
         </p>
- 
+
         <b>
           <p>Participantes:
           </b>
         </p>
-      
+
         <% @participants.each do |participant|%>
         <p><%= participant.username %>
         </p>
@@ -38,6 +38,19 @@
     </tr>
   </tbody>
 </table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+  $("#description").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+
+    $("#people").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+</script>
 
 <% if current_user.id != @owner.id && @discipline.is_registered? == false %>
 <a class="btn btn-primary btn-sm" href="/disciplines/new" role="button">Inscreva-se</a>
