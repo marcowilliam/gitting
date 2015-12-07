@@ -28,18 +28,24 @@ Description: This file contains what will show independent the page show a speci
        </div>
       </center>
        <div>
-       	<h3>Ultimos 5 commits </h3>
-       	<table border="1">
+  
+       </br>
+        <center>
+       	<h3>Últimos 5 commits </h3>
+       </center>
+       </br>
+       	<table class="table table-striped">
 			<tr>
-				<th>Author</th>
-				<th>Message</th>
-				<th>Date</th> 
+				<th>Autor</th>
+				<th>Menssagem</th>
+				<th>Data</th>
 			</tr>
 		   	 <% for i in 0..5 %>
 		    	<tr>
 		    		<td><p><%= @commits[i]["commit"]["author"]["name"]%></p></td>
 		    		<td><p><%= @commits[i]["commit"]["message"]%></p></td>
-		    		<td><p><%= @commits[i]["commit"]["author"]["date"]%></p></td>
+		    		<td><p><%= @commits[i]["commit"]["author"]["date"].sub(/T.+/, "")%></p></td>
+       
 		    	</tr>
 		    <% end %>
     	</table>
