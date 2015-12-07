@@ -11,16 +11,18 @@
 </tr>
   </tbody>
 </table>
-<a data-parent="#accordion" data-toggle="collapse" href="#collapsePessoa">Colaboradores do Projeto</a>
+<a data-parent="#accordion" data-toggle="collapse" href="#collapsePessoa">Colaboradores do Projeto / Commits</a>
 <table class="table">
   <tbody>
-    <tr>
-      <td class="strong">
+    
+      
         <% @collaborators.each do |collaborator|%>
-        <p><%= collaborator["login"]%>
-        </p>
+        
+          <tr>
+            <td class="strong"><%= collaborator["login"] %></td>
+              <td><%= collaborator["contributions"] %></td>
+       </tr>
         <% end %>
-      </td>
-    </tr>
+    
   </tbody>
 </table>
