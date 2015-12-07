@@ -17,7 +17,7 @@ class DisciplinesController < ApplicationController
       @disciplines_not_found = 'Nenhuma disciplina encontrada...'
 
     else
-      @disciplines = current_user.owned_disciplines
+      @disciplines = current_user.disciplines
       @discipline_partipate = make_disciplines
 
       @disciplines.append(@discipline_partipate)
@@ -31,7 +31,7 @@ class DisciplinesController < ApplicationController
   def show
     @discipline = Discipline.find(params[:id])
 
-    @owner = User.find(@discipline.owner_id)
+    @owner = User.find(@discipline.user)
 
     @participants = make_participants
     @groups = Group.where("discipline_id = ?", @discipline.id)
@@ -51,17 +51,17 @@ class DisciplinesController < ApplicationController
 
   # Instantiate a new discipline
   def new
-    @discipline = current_user.owned_disciplines.build
+    @discipline = current_user.disciplines.build
   end
 
   # Set new params into discipline
   def edit
-    @discipline = current_user.owned_disciplines.find(params[:id])
+    @discipline = current_user.disciplines.find(params[:id])
   end
 
   # Save the new discipline with validates
   def create
-    @discipline = current_user.owned_disciplines.build(discipline_params)
+    @discipline = current_user.disciplines.build(discipline_params)
     logger.debug "Recieve a discipline of user owner #{@discipline}"
 
     if @discipline.save
@@ -73,7 +73,7 @@ class DisciplinesController < ApplicationController
 
   # Update the discipline edited into database
   def update
-    @discipline = current_user.owned_disciplines.build(discipline_params)
+    @discipline = current_user.disciplines.build(discipline_params)
 
     if @discipline.update(room_params)
       redirect_to @discipline, notice: 'Você atualizou uma disciplina'
@@ -84,7 +84,7 @@ class DisciplinesController < ApplicationController
 
   # Method to remove a discipline instance
   def destroy
-    @discipline = current_user.owned_disciplines.find(params[:id])
+    @discipline = current_user.disciplines.find(params[:id])
     @discipline.destroy
 
     redirect_to disciplines_url
@@ -92,7 +92,7 @@ class DisciplinesController < ApplicationController
 
   # Method to associate a new instance into the current user
   def make_disciplines
-    @disciplines_from_user = current_user.registered_disciplines
+    @disciplines_from_user = current_user.disciplines
     logger.debug "Recieve a list of discipline_id #{@disciplinesFromUser.is_a?(Array)}"
     @disciplines_registered = []
 
