@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
-
-    <h3>Novo Grupo</h3>
-
+<div class="disciplines-layout">
+    <h3>Crie um novo Grupo</h3>
+  </br>
     <%= simple_form_for @groups, url: {action:"create"} do |f| %>
   	  <%= f.input :project_name , :label => "Nome do Projeto", as: :text%>
       <%= f.input :project_description , :label => "Descrição", as: :text%>
@@ -20,6 +20,6 @@
   	  <%= submit_tag "Confirmar",:name => nil, class:"btn btn-primary dropdown-toggle icon-white icon-user" %>
 
     <%end%>
-
+</div>
   </body>
 </html>

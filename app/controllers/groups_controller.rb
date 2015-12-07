@@ -31,9 +31,9 @@ class GroupsController < ApplicationController
     @url_api = "https://api.github.com/repos/#{@group.repository_owner}/#{@group.repository_name}"
     @url_collaborators = "#{@url_api}/contributors"
     @url_commits_stats = "#{@url_api}/status/contributors"
-
     @response = HTTParty.get(@url_collaborators)
     @collaborators = JSON.parse(@response.body)
+    @url = return_names(@collaborators)
   end
 
   # Defining the Class params
@@ -41,6 +41,20 @@ class GroupsController < ApplicationController
   #         project_description => description of the group project
   #         repository_name => repository of the group with the source code
   #         repository_owner => owner to repository to consult Git API
+
+  def return_names(collaborators)
+    @names = []
+    @commits = []
+    collaborators.each do |collaborator|
+      name = collaborator["login"]
+      commits = collaborator["contributions"]
+      @commits.append commits
+      @names.append name
+    end
+
+    url = Gchart.pie_3d(:title => "Commits por colaborador", :labels => @names, :data => @commits, :size => '450x150')
+    return url
+  end
 
   private
 

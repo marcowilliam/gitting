@@ -66,5 +66,6 @@ group :development do
    gem "bcrypt-ruby", :require => "bcrypt"
 
    gem 'httparty'
-   
+
+   gem 'googlecharts'   
 end
