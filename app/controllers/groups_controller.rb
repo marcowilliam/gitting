@@ -28,12 +28,19 @@ class GroupsController < ApplicationController
   # Method to show the group details
   def show
     @group = Group.find(params[:id])
+    
+    #Generate urls for Github API acess
     @url_api = "https://api.github.com/repos/#{@group.repository_owner}/#{@group.repository_name}"
     @url_collaborators = "#{@url_api}/contributors"
-    @url_commits_stats = "#{@url_api}/status/contributors"
-    @response = HTTParty.get(@url_collaborators)
-    @collaborators = JSON.parse(@response.body)
-    @url = return_names(@collaborators)
+    @url_commits = "#{@url_api}/commits"
+    
+    #parsing JSON for colaborators
+    @colaborattrs_response = HTTParty.get(@url_collaborators)
+    @collaborators = JSON.parse(@colaborattrs_response.body)
+    @url = generate_commit_per_collaborator(@collaborators)
+
+    @commits_response = HTTParty.get(@url_commits)
+    @commits = JSON.parse(@commits_response.body)
   end
 
   # Defining the Class params
@@ -42,7 +49,8 @@ class GroupsController < ApplicationController
   #         repository_name => repository of the group with the source code
   #         repository_owner => owner to repository to consult Git API
 
-  def return_names(collaborators)
+  #Generate custom url to pie graph with contains commits per collaborators
+  def generate_commit_per_collaborator(collaborators)
     @names = []
     @commits = []
     collaborators.each do |collaborator|

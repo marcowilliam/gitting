@@ -25,5 +25,22 @@ Description: This file contains what will show independent the page show a speci
        <div>
        	<img src= <%= @url %> >
        </div>
+       <div>
+       	<h3>Ultimos 5 commits </h3>
+       	<table border="1">
+			<tr>
+				<th>Author</th>
+				<th>Message</th>
+				<th>Date</th> 
+			</tr>
+		   	 <% for i in 0..5 %>
+		    	<tr>
+		    		<td><p><%= @commits[i]["commit"]["author"]["name"]%></p></td>
+		    		<td><p><%= @commits[i]["commit"]["message"]%></p></td>
+		    		<td><p><%= @commits[i]["commit"]["author"]["date"]%></p></td>
+		    	</tr>
+		    <% end %>
+    	</table>
+       </div>
 </body>
 </html>
