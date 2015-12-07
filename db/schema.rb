@@ -43,7 +43,8 @@ ActiveRecord::Schema.define(version: 20151205192038) do
     t.integer  "discipline_id"
     t.string   "project_name"
     t.string   "project_description"
-    t.string   "source"
+    t.string   "repository_name"
+    t.string   "repository_owner"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
@@ -64,16 +65,6 @@ ActiveRecord::Schema.define(version: 20151205192038) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
-
-  create_table "repositories", force: :cascade do |t|
-    t.integer  "group_id"
-    t.string   "repository_name"
-    t.string   "owner_name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "repositories", ["group_id"], name: "index_repositories_on_group_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
