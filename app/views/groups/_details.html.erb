@@ -17,7 +17,7 @@
     <tr>
       <td class="strong">
         <% @collaborators.each do |collaborator|%>
-        <p><%= "#{collaborator["login"]} -- #{collaborator["contributions"]}"%>
+        <p><%= collaborator["login"]%>
         </p>
         <% end %>
       </td>
