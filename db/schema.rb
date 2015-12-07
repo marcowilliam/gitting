@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20151205192038) do
     t.string   "discipline_name"
     t.text     "discipline_description"
     t.string   "discipline_year"
-    t.integer  "owner_id"
+    t.integer  "user_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
