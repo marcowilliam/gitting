@@ -1,0 +1,26 @@
+<a data-parent="#accordion" data-toggle="collapse" href="#collapseDescricao">Descrição
+</a>
+<table class="table">
+  <tbody>
+    <tr>
+      <td class="strong">
+<p>
+  <%= @group.project_description%>
+</p>
+</td>
+</tr>
+  </tbody>
+</table>
+<a data-parent="#accordion" data-toggle="collapse" href="#collapsePessoa">Colaboradores do Projeto</a>
+<table class="table">
+  <tbody>
+    <tr>
+      <td class="strong">
+        <% @collaborators.each do |collaborator|%>
+        <p><%= "#{collaborator["login"]} -- #{collaborator["contributions"]}"%>
+        </p>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

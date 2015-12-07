@@ -8,7 +8,19 @@ Description: This file contains what will show independent the page show a speci
   <title>Gitting: <%= @group.project_name%></title>
 </head>
 <body style = "paddin-top=-1%; color:gray;">
-	<p> <%= @group.project_name%></p>
-	<p> <%= @group.project_description%></p>
+  <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="#">
+              <%= @group.project_name%>
+            </a>
+          </li>
+          <li>
+            <%= render :partial => 'groups/details' %>
+          </li>
+        </ul>
+      </div>
 </body>
 </html>

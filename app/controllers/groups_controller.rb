@@ -28,6 +28,12 @@ class GroupsController < ApplicationController
   # Method to show the group details
   def show
     @group = Group.find(params[:id])
+    @url_api = "https://api.github.com/repos/#{@group.repository_owner}/#{@group.repository_name}"
+    @url_collaborators = "#{@url_api}/contributors"
+    @url_commits_stats = "#{@url_api}/status/contributors"
+
+    @response = HTTParty.get(@url_collaborators)
+    @collaborators = JSON.parse(@response.body)
   end
 
   # Defining the Class params
