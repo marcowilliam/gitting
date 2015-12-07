@@ -10,7 +10,6 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
   end
 
   # Method responsible for creating a new group
@@ -19,7 +18,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @groups.save
-        format.html { redirect_to discipline_path(Group.find(params[:discipline_id])) , notice: 'Grupo criado com sucesso' }
+        format.html { redirect_to discipline_path(params[:discipline_id]) , notice: 'Grupo criado com sucesso' }
       else
         format.html { render :new }
       end
@@ -40,6 +39,7 @@ class GroupsController < ApplicationController
     @collaborators = JSON.parse(@colaborattrs_response.body)
     @url = generate_commit_per_collaborator(@collaborators)
 
+    #parsing JSON for commits
     @commits_response = HTTParty.get(@url_commits)
     @commits = JSON.parse(@commits_response.body)
   end
